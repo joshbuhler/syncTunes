@@ -1,6 +1,8 @@
 //
 //  ConsoleIO.swift
 //
+// Based on info from https://www.raywenderlich.com/163134/command-line-programs-macos-tutorial-2
+//
 
 import Foundation
 
