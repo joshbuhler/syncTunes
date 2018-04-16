@@ -3,7 +3,6 @@
 //  syncTunes
 //
 //  Created by Joshua Buhler on 4/10/18.
-//  Copyright © 2018 Joshua Buhler. All rights reserved.
 //
 
 import Foundation

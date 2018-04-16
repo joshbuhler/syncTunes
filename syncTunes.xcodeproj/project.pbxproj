@@ -34,7 +34,6 @@
 		5C28A4462083214B00F9A6D1 /* CapTunes_test.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CapTunes_test.m3u; sourceTree = "<group>"; };
 		5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCopyOperation.swift; sourceTree = "<group>"; };
 		5C5DAE6320841B4000ABB844 /* TestPlaylist.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestPlaylist.m3u; sourceTree = "<group>"; };
-		5C7271B5208107C5004C2F39 /* notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = notes.md; sourceTree = SOURCE_ROOT; };
 		5C7DE1672081970A005F88E4 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = syncTunesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7DE17120819F4A005F88E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,7 +111,6 @@
 				5CD8002D207D86140081C1FA /* CapTunes2.m3u */,
 				5CD8002E207D86140081C1FA /* CapTunes.m3u */,
 				5C28A4462083214B00F9A6D1 /* CapTunes_test.m3u */,
-				5C7271B5208107C5004C2F39 /* notes.md */,
 			);
 			path = TestFiles;
 			sourceTree = "<group>";
