@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5C28A4472083214B00F9A6D1 /* CapTunes_test.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 5C28A4462083214B00F9A6D1 /* CapTunes_test.m3u */; };
+		5C5DAE622083F64B00ABB844 /* TrackCopyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */; };
+		5C5DAE6420841B4000ABB844 /* TestPlaylist.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DAE6320841B4000ABB844 /* TestPlaylist.m3u */; };
+		5C7DE1682081970A005F88E4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE1672081970A005F88E4 /* Track.swift */; };
+		5C7DE17620819F72005F88E4 /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE17520819F72005F88E4 /* TrackTests.swift */; };
+		5C7DE1772081A01D005F88E4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE1672081970A005F88E4 /* Track.swift */; };
+		5CD80026207D85540081C1FA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80025207D85540081C1FA /* main.swift */; };
+		5CD80032207D86200081C1FA /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8002F207D86200081C1FA /* ConsoleIO.swift */; };
+		5CD80034207D86200081C1FA /* SyncTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80031207D86200081C1FA /* SyncTunes.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5CD80020207D85540081C1FA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5C28A4462083214B00F9A6D1 /* CapTunes_test.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CapTunes_test.m3u; sourceTree = "<group>"; };
+		5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCopyOperation.swift; sourceTree = "<group>"; };
+		5C5DAE6320841B4000ABB844 /* TestPlaylist.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestPlaylist.m3u; sourceTree = "<group>"; };
+		5C7271B5208107C5004C2F39 /* notes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = notes.md; sourceTree = SOURCE_ROOT; };
+		5C7DE1672081970A005F88E4 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = syncTunesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C7DE17120819F4A005F88E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C7DE17520819F72005F88E4 /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
+		5CD80022207D85540081C1FA /* syncTunes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = syncTunes; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CD80025207D85540081C1FA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		5CD8002D207D86140081C1FA /* CapTunes2.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = CapTunes2.m3u; sourceTree = "<group>"; };
+		5CD8002E207D86140081C1FA /* CapTunes.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = CapTunes.m3u; sourceTree = "<group>"; };
+		5CD8002F207D86200081C1FA /* ConsoleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
+		5CD80031207D86200081C1FA /* SyncTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTunes.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C7DE16A20819F4A005F88E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD8001F207D85540081C1FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C7DE16E20819F4A005F88E4 /* syncTunesTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C7DE17520819F72005F88E4 /* TrackTests.swift */,
+				5C7DE17120819F4A005F88E4 /* Info.plist */,
+			);
+			path = syncTunesTests;
+			sourceTree = "<group>";
+		};
+		5CD80019207D85540081C1FA = {
+			isa = PBXGroup;
+			children = (
+				5CD8002C207D86140081C1FA /* TestFiles */,
+				5CD80024207D85540081C1FA /* syncTunes */,
+				5C7DE16E20819F4A005F88E4 /* syncTunesTests */,
+				5CD80023207D85540081C1FA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CD80023207D85540081C1FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5CD80022207D85540081C1FA /* syncTunes */,
+				5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5CD80024207D85540081C1FA /* syncTunes */ = {
+			isa = PBXGroup;
+			children = (
+				5CD80025207D85540081C1FA /* main.swift */,
+				5CD80031207D86200081C1FA /* SyncTunes.swift */,
+				5C7DE1672081970A005F88E4 /* Track.swift */,
+				5CD8002F207D86200081C1FA /* ConsoleIO.swift */,
+				5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */,
+			);
+			path = syncTunes;
+			sourceTree = "<group>";
+		};
+		5CD8002C207D86140081C1FA /* TestFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5C5DAE6320841B4000ABB844 /* TestPlaylist.m3u */,
+				5CD8002D207D86140081C1FA /* CapTunes2.m3u */,
+				5CD8002E207D86140081C1FA /* CapTunes.m3u */,
+				5C28A4462083214B00F9A6D1 /* CapTunes_test.m3u */,
+				5C7271B5208107C5004C2F39 /* notes.md */,
+			);
+			path = TestFiles;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C7DE16C20819F4A005F88E4 /* syncTunesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C7DE17220819F4A005F88E4 /* Build configuration list for PBXNativeTarget "syncTunesTests" */;
+			buildPhases = (
+				5C7DE16920819F4A005F88E4 /* Sources */,
+				5C7DE16A20819F4A005F88E4 /* Frameworks */,
+				5C7DE16B20819F4A005F88E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = syncTunesTests;
+			productName = syncTunesTests;
+			productReference = 5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5CD80021207D85540081C1FA /* syncTunes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CD80029207D85540081C1FA /* Build configuration list for PBXNativeTarget "syncTunes" */;
+			buildPhases = (
+				5CD8001E207D85540081C1FA /* Sources */,
+				5CD8001F207D85540081C1FA /* Frameworks */,
+				5CD80020207D85540081C1FA /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = syncTunes;
+			productName = syncTunes;
+			productReference = 5CD80022207D85540081C1FA /* syncTunes */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5CD8001A207D85540081C1FA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = "Joshua Buhler";
+				TargetAttributes = {
+					5C7DE16C20819F4A005F88E4 = {
+						CreatedOnToolsVersion = 9.3;
+					};
+					5CD80021207D85540081C1FA = {
+						CreatedOnToolsVersion = 9.3;
+					};
+				};
+			};
+			buildConfigurationList = 5CD8001D207D85540081C1FA /* Build configuration list for PBXProject "syncTunes" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5CD80019207D85540081C1FA;
+			productRefGroup = 5CD80023207D85540081C1FA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5CD80021207D85540081C1FA /* syncTunes */,
+				5C7DE16C20819F4A005F88E4 /* syncTunesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C7DE16B20819F4A005F88E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C28A4472083214B00F9A6D1 /* CapTunes_test.m3u in Resources */,
+				5C5DAE6420841B4000ABB844 /* TestPlaylist.m3u in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C7DE16920819F4A005F88E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C7DE17620819F72005F88E4 /* TrackTests.swift in Sources */,
+				5C7DE1772081A01D005F88E4 /* Track.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CD8001E207D85540081C1FA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C5DAE622083F64B00ABB844 /* TrackCopyOperation.swift in Sources */,
+				5CD80034207D86200081C1FA /* SyncTunes.swift in Sources */,
+				5CD80026207D85540081C1FA /* main.swift in Sources */,
+				5CD80032207D86200081C1FA /* ConsoleIO.swift in Sources */,
+				5C7DE1682081970A005F88E4 /* Track.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5C7DE17320819F4A005F88E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
+				INFOPLIST_FILE = syncTunesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.buhler.syncTunesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		5C7DE17420819F4A005F88E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
+				INFOPLIST_FILE = syncTunesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = me.buhler.syncTunesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		5CD80027207D85540081C1FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5CD80028207D85540081C1FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		5CD8002A207D85540081C1FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		5CD8002B207D85540081C1FA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C7DE17220819F4A005F88E4 /* Build configuration list for PBXNativeTarget "syncTunesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C7DE17320819F4A005F88E4 /* Debug */,
+				5C7DE17420819F4A005F88E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CD8001D207D85540081C1FA /* Build configuration list for PBXProject "syncTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CD80027207D85540081C1FA /* Debug */,
+				5CD80028207D85540081C1FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CD80029207D85540081C1FA /* Build configuration list for PBXNativeTarget "syncTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CD8002A207D85540081C1FA /* Debug */,
+				5CD8002B207D85540081C1FA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5CD8001A207D85540081C1FA /* Project object */;
+}
