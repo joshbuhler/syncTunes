@@ -71,7 +71,7 @@ class SyncTunes {
             
             if (isValidFiletype(fileURL.lastPathComponent)) {
                 
-                let newPlaylist = Playlist(filePath: fileURL.path, destURL:outputURL)
+                let newPlaylist = Playlist(filePath: fileURL.path)
                 playlists.append(newPlaylist)
             }
         }

@@ -13,15 +13,12 @@ class Playlist {
     var fileName:String?
     
     var tracks:[Track] = [Track]()
-    
-    var destURL:URL
 
     // Most of the guts of SyncTunes will be moved here. This will handle the parsing of a playlist file, track creation, and a toString() method for writing the playlist file. syncTunes can handle the actual file writing.
     // SyncTunes will also be responsible for scanning a directory, and feeding the files to Playlist
     
-    init(filePath:String, destURL:URL) {
+    init(filePath:String) {
         self.filePath = filePath
-        self.destURL = destURL
     }
     
     func openFile (_ playlistFile:String) -> String? {
