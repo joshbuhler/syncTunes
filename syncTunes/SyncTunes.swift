@@ -49,6 +49,8 @@ class SyncTunes {
         
         buildTrackList()
         trimPathAncestors()
+        
+        writePlaylistFiles()
     }
     
 //    func processInputFile () {
@@ -126,23 +128,20 @@ class SyncTunes {
         }
     }
     
-    func writeOutputFile () {
+    func writePlaylistFiles () {
         
-        let outputPlistName = inputURL.lastPathComponent
-        let outputFileURL = outputURL.appendingPathComponent(outputPlistName)
-        
-        var outputString = "#EXTM3U\n"
-        
-        for t in tracks {
-            outputString += t.toString()
-            outputString += "\n"
-        }
-        
-        do {
-            try outputString.write(to: outputFileURL, atomically: true, encoding: .utf8)
-            ConsoleIO.writeMessage("File written to: \(outputFileURL)")
-        } catch let e {
-            ConsoleIO.writeMessage("Error writing strings file: \(e)", to: .error)
+        for p in playlists {
+            let outputPlistName = p.fileName!
+            let outputFileURL = outputURL.appendingPathComponent(outputPlistName)
+            
+            let outputString = p.getPlaylistString()
+            
+            do {
+                try outputString.write(to: outputFileURL, atomically: true, encoding: .utf8)
+                ConsoleIO.writeMessage("File written to: \(outputFileURL)")
+            } catch let e {
+                ConsoleIO.writeMessage("Error writing strings file: \(e)", to: .error)
+            }
         }
     }
     
