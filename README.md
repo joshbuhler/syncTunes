@@ -8,10 +8,10 @@ While I use it with iTunes, iTunes is *not* required. You'll really just need so
 
 When used, the following steps will happen:
 
-1. syncTunes will scan the supplied .m3u playlist file and build a list of the tracks included.
+1. syncTunes will scan the supplied directory for .m3u playlist files and build a list of the tracks included.
 2. Each track's file extension will be checked, and if it's a supported type, will be copied to a new playlist.
 3. Supported track files will be copied from the location listed in the playlist file to the output directory.
-4. A new playlist file will be written to the output directory, this new playlist will:
+4. N playlist files will be written to the output directory, these new playlists will:
 	* Preserve the order of the original playlist
 	* Omit any unsupported files
 	* Have new file paths that point to the copied files. These paths will be relative to the output directory
@@ -20,9 +20,9 @@ When used, the following steps will happen:
 
 After building the project, in Terminal.app (or other command-line app) navigate to the directory containing syncTunes.
 
-Invoke syncTunes: `syncTunes -i path/to/input/file -o path/to/output/dir`
+Invoke syncTunes: `syncTunes -i path/to/input/dir -o path/to/output/dir`
 
-Both an input and output option are required. The input path must be a .m3u file, and the output directory will be a directory where the new playlist file and music files will be copied to.
+Both an input and output option are required. The input dir must contain .m3u files, and the output directory will be a directory where the new playlist file and music files will be copied to.
 
 If the output directory does exist, **it will be overwritten.**
 
