@@ -50,8 +50,9 @@ class SyncTunes {
         buildTrackList()
         trimPathAncestors()
         
+        // file ops
+        createOutputDir()
         writePlaylistFiles()
-        
         copyTracksToOutputDir()
     }
     
