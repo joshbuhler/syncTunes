@@ -26,7 +26,7 @@ class SyncTunes {
     let inputURL:URL
     let outputURL:URL
     
-    var playlistFiles:[URL] = [URL]()
+    var playlists:[Playlist] = [Playlist]()
     var tracksFound:[Track] = [Track]()
     
     init(inputDir:String, outputPath:String) {
@@ -38,33 +38,28 @@ class SyncTunes {
         return (OptionType(option: option, value: value))
     }
     
-    func openFile (_ playlistFile:String) -> String? {
-        do {
-            let textURL = URL.init(fileURLWithPath: playlistFile)
-            let textString = try String.init(contentsOf: textURL, encoding: .utf8)
-            return textString
-        } catch let error {
-            ConsoleIO.writeMessage(error.localizedDescription, to: .error)
-            return nil
-        }
-    }
+    
     
     func processInputDir () {
         scanInputDirectory()
         
-        //splitIntoTracks(pText: playlistText)
-    }
-    
-    func processInputFile () {
-        ConsoleIO.writeMessage("Scanning playlist file: \(inputFile)")
-        
-        guard let playlistText = self.openFile(self.inputURL.path) else {
-            print ("ERROR: playlistText is empty")
-            return
+        for p in playlists {
+            p.processPlaylist()
         }
         
-        splitIntoTracks(pText: playlistText)
+        // get list of tracks, copy, write playlists, etc.
     }
+    
+//    func processInputFile () {
+//        ConsoleIO.writeMessage("Scanning playlist file: \(inputFile)")
+//
+//        guard let playlistText = self.openFile(self.inputURL.path) else {
+//            print ("ERROR: playlistText is empty")
+//            return
+//        }
+//
+//        splitIntoTracks(pText: playlistText)
+//    }
     
     func scanInputDirectory () {
         ConsoleIO.writeMessage("Scanning for playlists in \(inputDir)")
@@ -80,16 +75,13 @@ class SyncTunes {
         for case let fileURL as URL in enumerator {
             
             if (isValidFiletype(fileURL.lastPathComponent)) {
-                if let fileContents = openFile(fileURL.path) {
-                    
-                    playlistFiles.append(fileURL)
-                    
-                    // build new Playlist objuects from the fileContents
-                }
+                
+                let newPlaylist = Playlist(filePath: fileURL.path)
+                playlists.append(newPlaylist)
             }
         }
         
-        ConsoleIO.writeMessage("Found \(playlistFiles.count) files")
+        ConsoleIO.writeMessage("Found \(playlists.count) files")
     }
     
     func isValidFiletype (_ fileName:String) -> Bool {
@@ -100,22 +92,10 @@ class SyncTunes {
     func doIt () {
         createOutputDir()
         copyTracksToOutputDir()
-        writeOutputFile()
+//        writeOutputFile()
     }
     
-    func splitIntoTracks (pText:String) {
-        let trackStrings = pText.components(separatedBy: "#EXTINF:")
-        
-        for t in trackStrings {
-            
-            let newTrack = Track(trackTxt: t)
-            if (newTrack.supportedType) {
-                tracksFound.append(newTrack)
-            }
-        }
-        
-        print ("Found \(tracksFound.count) tracks")
-    }
+    
     
     func createOutputDir () {
         let outputURL = URL.init(fileURLWithPath: outputPath)
