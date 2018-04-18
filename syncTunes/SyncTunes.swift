@@ -51,6 +51,8 @@ class SyncTunes {
         trimPathAncestors()
         
         writePlaylistFiles()
+        
+        copyTracksToOutputDir()
     }
     
 //    func processInputFile () {
@@ -184,16 +186,10 @@ class SyncTunes {
             t.destURL = newDestURL
             t.playlistPath = "\\" + startComps.joined(separator: "\\")
         }
-        
-        print ("pathCompsToTrim: \(pathCompsToTrim)")
     }
-    
     
     let copyQueue:OperationQueue = OperationQueue()
     func copyTracksToOutputDir () {
-        
-        //trimPathAncestors()
-        
         for t in tracks {
             let copyOp = TrackCopyOperation(source: t.sourceURL, dest: t.destURL)
             copyQueue.addOperation(copyOp)

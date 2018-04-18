@@ -27,6 +27,8 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
             var dirPathComps = destURL.pathComponents
             dirPathComps.removeLast()
             
+            ConsoleIO.writeMessage("Copying: \(destURL.lastPathComponent)")
+            
             let dirPath = dirPathComps.joined(separator: "/")
             
             try fileMan.createDirectory(atPath: dirPath, withIntermediateDirectories: true, attributes: nil)
