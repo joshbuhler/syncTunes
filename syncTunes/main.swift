@@ -23,6 +23,7 @@ let argument4 = CommandLine.arguments[4]
 let param_0 = SyncTunes.getOption(String(argument1[argument1.index(argument1.startIndex, offsetBy: 1)...]), value: argument2)
 let param_1 = SyncTunes.getOption(String(argument3[argument3.index(argument3.startIndex, offsetBy: 1)...]), value: argument4)
 
+var inputDir:String = ""
 var inputFile:String = ""
 var outputPath:String = ""
 
@@ -30,6 +31,7 @@ func processOption (option:OptionType) {
     switch (option) {
     case let .inputPath(dir):
         inputFile = dir
+        inputDir = dir
     case let .outputPath(dir):
         outputPath = dir
     case .unknown:
@@ -42,5 +44,6 @@ processOption(option: param_0)
 processOption(option: param_1)
 
 let tuneSync = SyncTunes(inputDir: inputFile, outputPath: outputPath)
-tuneSync.processInputFile()
-tuneSync.doIt()
+//tuneSync.processInputFile()
+tuneSync.processInputDir()
+//tuneSync.doIt()

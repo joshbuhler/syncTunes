@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C28A4472083214B00F9A6D1 /* CapTunes_test.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 5C28A4462083214B00F9A6D1 /* CapTunes_test.m3u */; };
+		5C3AD78A208696960011D247 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3AD789208696960011D247 /* Playlist.swift */; };
 		5C5DAE622083F64B00ABB844 /* TrackCopyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */; };
 		5C5DAE6420841B4000ABB844 /* TestPlaylist.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DAE6320841B4000ABB844 /* TestPlaylist.m3u */; };
 		5C7DE1682081970A005F88E4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE1672081970A005F88E4 /* Track.swift */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		5C28A4462083214B00F9A6D1 /* CapTunes_test.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CapTunes_test.m3u; sourceTree = "<group>"; };
+		5C3AD789208696960011D247 /* Playlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCopyOperation.swift; sourceTree = "<group>"; };
 		5C5DAE6320841B4000ABB844 /* TestPlaylist.m3u */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TestPlaylist.m3u; sourceTree = "<group>"; };
 		5C7DE1672081970A005F88E4 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				5CD80025207D85540081C1FA /* main.swift */,
 				5CD80031207D86200081C1FA /* SyncTunes.swift */,
 				5C7DE1672081970A005F88E4 /* Track.swift */,
+				5C3AD789208696960011D247 /* Playlist.swift */,
 				5CD8002F207D86200081C1FA /* ConsoleIO.swift */,
 				5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */,
 			);
@@ -219,6 +222,7 @@
 				5CD80026207D85540081C1FA /* main.swift in Sources */,
 				5CD80032207D86200081C1FA /* ConsoleIO.swift in Sources */,
 				5C7DE1682081970A005F88E4 /* Track.swift in Sources */,
+				5C3AD78A208696960011D247 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

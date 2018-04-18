@@ -26,6 +26,7 @@ class SyncTunes {
     let inputURL:URL
     let outputURL:URL
     
+    var playlistFiles:[URL] = [URL]()
     var tracksFound:[Track] = [Track]()
     
     init(inputDir:String, outputPath:String) {
@@ -37,9 +38,10 @@ class SyncTunes {
         return (OptionType(option: option, value: value))
     }
     
-    func openFile (_ playlistFile:URL) -> String? {
+    func openFile (_ playlistFile:String) -> String? {
         do {
-            let textString = try String.init(contentsOf: self.inputURL, encoding: .utf8)
+            let textURL = URL.init(fileURLWithPath: playlistFile)
+            let textString = try String.init(contentsOf: textURL, encoding: .utf8)
             return textString
         } catch let error {
             ConsoleIO.writeMessage(error.localizedDescription, to: .error)
@@ -47,20 +49,52 @@ class SyncTunes {
         }
     }
     
+    func processInputDir () {
+        scanInputDirectory()
+        
+        //splitIntoTracks(pText: playlistText)
+    }
+    
     func processInputFile () {
         ConsoleIO.writeMessage("Scanning playlist file: \(inputFile)")
         
-        guard let playlistText = self.openFile(self.inputURL) else {
+        guard let playlistText = self.openFile(self.inputURL.path) else {
             print ("ERROR: playlistText is empty")
             return
         }
         
         splitIntoTracks(pText: playlistText)
+    }
+    
+    func scanInputDirectory () {
+        ConsoleIO.writeMessage("Scanning for playlists in \(inputDir)")
         
-        // TODO: create output dir
-        // TODO: write new playlist to output dir
-        // TODO: rewrite track paths to be the root of the output dir
-        // TODO: setup operations to copy tracks to output dir
+        let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
+        let enumerator = FileManager.default.enumerator(at: inputURL,
+                                                        includingPropertiesForKeys: resourceKeys,
+                                                        options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
+                                                            ConsoleIO.writeMessage("scan error at \(url): Error: \(error)", to: .error)
+                                                            return true
+        })!
+        
+        for case let fileURL as URL in enumerator {
+            
+            if (isValidFiletype(fileURL.lastPathComponent)) {
+                if let fileContents = openFile(fileURL.path) {
+                    
+                    playlistFiles.append(fileURL)
+                    
+                    // build new Playlist objuects from the fileContents
+                }
+            }
+        }
+        
+        ConsoleIO.writeMessage("Found \(playlistFiles.count) files")
+    }
+    
+    func isValidFiletype (_ fileName:String) -> Bool {
+        return ((fileName.lowercased().range(of: "m3u") != nil) ||
+            (fileName.lowercased().range(of: "m3u8") != nil))
     }
     
     func doIt () {
