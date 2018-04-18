@@ -27,7 +27,7 @@ class SyncTunes {
     let outputURL:URL
     
     var playlists:[Playlist] = [Playlist]()
-    var tracksFound:[Track] = [Track]()
+    var tracks:[Track] = [Track]()
     
     init(inputDir:String, outputPath:String) {
         self.inputURL = URL.init(fileURLWithPath: inputDir)
@@ -47,7 +47,8 @@ class SyncTunes {
             p.processPlaylist()
         }
         
-        // get list of tracks, copy, write playlists, etc.
+        buildTrackList()
+        trimPathAncestors()
     }
     
 //    func processInputFile () {
@@ -76,7 +77,7 @@ class SyncTunes {
             
             if (isValidFiletype(fileURL.lastPathComponent)) {
                 
-                let newPlaylist = Playlist(filePath: fileURL.path)
+                let newPlaylist = Playlist(filePath: fileURL.path, destURL:outputURL)
                 playlists.append(newPlaylist)
             }
         }
@@ -88,6 +89,16 @@ class SyncTunes {
         return ((fileName.lowercased().range(of: "m3u") != nil) ||
             (fileName.lowercased().range(of: "m3u8") != nil))
     }
+    
+    func buildTrackList () {
+        tracks.removeAll()
+        
+        for p in playlists {
+            tracks.append(contentsOf: p.tracks)
+            print ("totalTracks: \(tracks.count)")
+        }
+    }
+    
     
     func doIt () {
         createOutputDir()
@@ -122,7 +133,7 @@ class SyncTunes {
         
         var outputString = "#EXTM3U\n"
         
-        for t in tracksFound {
+        for t in tracks {
             outputString += t.toString()
             outputString += "\n"
         }
@@ -135,31 +146,19 @@ class SyncTunes {
         }
     }
     
-    
-    let copyQueue:OperationQueue = OperationQueue()
-    func copyTracksToOutputDir () {
-        
-        trimPathAncestors()
-        
-        for t in tracksFound {
-            let copyOp = TrackCopyOperation(source: t.sourceURL, dest: t.destURL)
-            copyQueue.addOperation(copyOp)
-        }
-    }
-    
     func trimPathAncestors () {
         var pathCompsToTrim = 0
         
-        // at most, we'll trim 10
+        // at most, we'll trim 10 path components
         for i in 0..<10 {
             
             var cPathComp:String = ""
-            let t1 = tracksFound[0]
+            let t1 = tracks[0]
             let pathComps = t1.sourceURL.pathComponents
             cPathComp = pathComps[i]
             
             var allMatch = true
-            for t in tracksFound {
+            for t in tracks {
                 let pathComps = t.sourceURL.pathComponents
                 if (pathComps[i] != cPathComp) {
                     // stop looking
@@ -175,7 +174,7 @@ class SyncTunes {
             }
         }
         
-        for t in tracksFound {
+        for t in tracks {
             var startComps = t.sourceURL.pathComponents
             startComps.removeFirst(pathCompsToTrim)
             
@@ -189,6 +188,20 @@ class SyncTunes {
         
         print ("pathCompsToTrim: \(pathCompsToTrim)")
     }
+    
+    
+    let copyQueue:OperationQueue = OperationQueue()
+    func copyTracksToOutputDir () {
+        
+        //trimPathAncestors()
+        
+        for t in tracks {
+            let copyOp = TrackCopyOperation(source: t.sourceURL, dest: t.destURL)
+            copyQueue.addOperation(copyOp)
+        }
+    }
+    
+    
 }
 
 
