@@ -24,7 +24,13 @@ class Track {
     
     func parseTrackTxt (txt:String) {
         self.supportedType = checkFileType(txt: txt)
-        self.sourceURL = findFileURL(txt: txt)
+        
+        let fileText:String? = txt.components(separatedBy: "\r")[1]
+        
+        if let fText = fileText {
+            self.sourceURL = URL(fileURLWithPath: fText)
+        }
+            
         findTrackMetadata(txt: txt)
     }
     
@@ -60,39 +66,6 @@ class Track {
         }
         
         return false
-    }
-    
-    func findFileURL (txt:String) -> URL? {
-        
-        let pattern = "(?<=(\\n|\\r))(.+)"
-        
-        let fullRange = NSMakeRange(0, txt.count)
-        
-        var returnURL:URL?
-        
-        do {
-            let idRegex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
-            
-            idRegex.enumerateMatches(in: txt,
-                                     options: NSRegularExpression.MatchingOptions.init(rawValue: 0),
-                                     range: fullRange,
-                                     using: { (match, matchingFlags, stop) in
-                                        
-                                        if let matchRange = match?.range {
-                                            let startIndex = txt.index(txt.startIndex,
-                                                                         offsetBy: matchRange.location)
-                                            let endIndex = txt.index(startIndex,
-                                                                       offsetBy: matchRange.length)
-                                            
-                                            let filePath = String(txt[startIndex ..< endIndex])
-                                            returnURL = URL(fileURLWithPath: filePath)
-                                        }
-            })
-        } catch let error {
-            print ("ERROR: \(error)")
-        }
-        
-        return returnURL
     }
     
     func toString () -> String {
