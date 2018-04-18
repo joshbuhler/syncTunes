@@ -38,8 +38,6 @@ class SyncTunes {
         return (OptionType(option: option, value: value))
     }
     
-    
-    
     func processInputDir () {
         scanInputDirectory()
         
@@ -55,17 +53,6 @@ class SyncTunes {
         writePlaylistFiles()
         copyTracksToOutputDir()
     }
-    
-//    func processInputFile () {
-//        ConsoleIO.writeMessage("Scanning playlist file: \(inputFile)")
-//
-//        guard let playlistText = self.openFile(self.inputURL.path) else {
-//            print ("ERROR: playlistText is empty")
-//            return
-//        }
-//
-//        splitIntoTracks(pText: playlistText)
-//    }
     
     func scanInputDirectory () {
         ConsoleIO.writeMessage("Scanning for playlists in \(inputDir)")
@@ -103,15 +90,6 @@ class SyncTunes {
             print ("totalTracks: \(tracks.count)")
         }
     }
-    
-    
-    func doIt () {
-        createOutputDir()
-        copyTracksToOutputDir()
-//        writeOutputFile()
-    }
-    
-    
     
     func createOutputDir () {
         let outputURL = URL.init(fileURLWithPath: outputPath)
@@ -191,13 +169,13 @@ class SyncTunes {
     
     let copyQueue:OperationQueue = OperationQueue()
     func copyTracksToOutputDir () {
+        var trackNum = 1
         for t in tracks {
             let copyOp = TrackCopyOperation(source: t.sourceURL, dest: t.destURL)
+            copyOp.trackNum = trackNum
+            copyOp.trackCount = tracks.count
             copyQueue.addOperation(copyOp)
+            trackNum += 1
         }
     }
-    
-    
 }
-
-
