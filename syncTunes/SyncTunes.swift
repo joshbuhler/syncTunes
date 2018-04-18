@@ -26,7 +26,8 @@ class SyncTunes {
     let inputURL:URL
     let outputURL:URL
     
-    var tracksFound:[Track] = [Track]()
+    var playlists:[Playlist] = [Playlist]()
+    var tracks:[Track] = [Track]()
     
     init(inputDir:String, outputPath:String) {
         self.inputURL = URL.init(fileURLWithPath: inputDir)
@@ -37,50 +38,57 @@ class SyncTunes {
         return (OptionType(option: option, value: value))
     }
     
-    func openFile (_ playlistFile:URL) -> String? {
-        do {
-            let textString = try String.init(contentsOf: self.inputURL, encoding: .utf8)
-            return textString
-        } catch let error {
-            ConsoleIO.writeMessage(error.localizedDescription, to: .error)
-            return nil
-        }
-    }
-    
-    func processInputFile () {
-        ConsoleIO.writeMessage("Scanning playlist file: \(inputFile)")
+    func processInputDir () {
+        scanInputDirectory()
         
-        guard let playlistText = self.openFile(self.inputURL) else {
-            print ("ERROR: playlistText is empty")
-            return
+        for p in playlists {
+            p.processPlaylist()
         }
         
-        splitIntoTracks(pText: playlistText)
+        buildTrackList()
+        trimPathAncestors()
         
-        // TODO: create output dir
-        // TODO: write new playlist to output dir
-        // TODO: rewrite track paths to be the root of the output dir
-        // TODO: setup operations to copy tracks to output dir
-    }
-    
-    func doIt () {
+        // file ops
         createOutputDir()
+        writePlaylistFiles()
         copyTracksToOutputDir()
-        writeOutputFile()
     }
     
-    func splitIntoTracks (pText:String) {
-        let trackStrings = pText.components(separatedBy: "#EXTINF:")
+    func scanInputDirectory () {
+        ConsoleIO.writeMessage("Scanning for playlists in \(inputDir)")
         
-        for t in trackStrings {
+        let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
+        let enumerator = FileManager.default.enumerator(at: inputURL,
+                                                        includingPropertiesForKeys: resourceKeys,
+                                                        options: [.skipsHiddenFiles], errorHandler: { (url, error) -> Bool in
+                                                            ConsoleIO.writeMessage("scan error at \(url): Error: \(error)", to: .error)
+                                                            return true
+        })!
+        
+        for case let fileURL as URL in enumerator {
             
-            let newTrack = Track(trackTxt: t)
-            if (newTrack.supportedType) {
-                tracksFound.append(newTrack)
+            if (isValidFiletype(fileURL.lastPathComponent)) {
+                
+                let newPlaylist = Playlist(filePath: fileURL.path, destURL:outputURL)
+                playlists.append(newPlaylist)
             }
         }
         
-        print ("Found \(tracksFound.count) tracks")
+        ConsoleIO.writeMessage("Found \(playlists.count) files")
+    }
+    
+    func isValidFiletype (_ fileName:String) -> Bool {
+        return ((fileName.lowercased().range(of: "m3u") != nil) ||
+            (fileName.lowercased().range(of: "m3u8") != nil))
+    }
+    
+    func buildTrackList () {
+        tracks.removeAll()
+        
+        for p in playlists {
+            tracks.append(contentsOf: p.tracks)
+            print ("totalTracks: \(tracks.count)")
+        }
     }
     
     func createOutputDir () {
@@ -101,51 +109,36 @@ class SyncTunes {
         }
     }
     
-    func writeOutputFile () {
+    func writePlaylistFiles () {
         
-        let outputPlistName = inputURL.lastPathComponent
-        let outputFileURL = outputURL.appendingPathComponent(outputPlistName)
-        
-        var outputString = "#EXTM3U\n"
-        
-        for t in tracksFound {
-            outputString += t.toString()
-            outputString += "\n"
-        }
-        
-        do {
-            try outputString.write(to: outputFileURL, atomically: true, encoding: .utf8)
-            ConsoleIO.writeMessage("File written to: \(outputFileURL)")
-        } catch let e {
-            ConsoleIO.writeMessage("Error writing strings file: \(e)", to: .error)
-        }
-    }
-    
-    
-    let copyQueue:OperationQueue = OperationQueue()
-    func copyTracksToOutputDir () {
-        
-        trimPathAncestors()
-        
-        for t in tracksFound {
-            let copyOp = TrackCopyOperation(source: t.sourceURL, dest: t.destURL)
-            copyQueue.addOperation(copyOp)
+        for p in playlists {
+            let outputPlistName = p.fileName!
+            let outputFileURL = outputURL.appendingPathComponent(outputPlistName)
+            
+            let outputString = p.getPlaylistString()
+            
+            do {
+                try outputString.write(to: outputFileURL, atomically: true, encoding: .utf8)
+                ConsoleIO.writeMessage("File written to: \(outputFileURL)")
+            } catch let e {
+                ConsoleIO.writeMessage("Error writing strings file: \(e)", to: .error)
+            }
         }
     }
     
     func trimPathAncestors () {
         var pathCompsToTrim = 0
         
-        // at most, we'll trim 10
+        // at most, we'll trim 10 path components
         for i in 0..<10 {
             
             var cPathComp:String = ""
-            let t1 = tracksFound[0]
+            let t1 = tracks[0]
             let pathComps = t1.sourceURL.pathComponents
             cPathComp = pathComps[i]
             
             var allMatch = true
-            for t in tracksFound {
+            for t in tracks {
                 let pathComps = t.sourceURL.pathComponents
                 if (pathComps[i] != cPathComp) {
                     // stop looking
@@ -161,7 +154,7 @@ class SyncTunes {
             }
         }
         
-        for t in tracksFound {
+        for t in tracks {
             var startComps = t.sourceURL.pathComponents
             startComps.removeFirst(pathCompsToTrim)
             
@@ -172,9 +165,17 @@ class SyncTunes {
             t.destURL = newDestURL
             t.playlistPath = "\\" + startComps.joined(separator: "\\")
         }
-        
-        print ("pathCompsToTrim: \(pathCompsToTrim)")
+    }
+    
+    let copyQueue:OperationQueue = OperationQueue()
+    func copyTracksToOutputDir () {
+        var trackNum = 1
+        for t in tracks {
+            let copyOp = TrackCopyOperation(source: t.sourceURL, dest: t.destURL)
+            copyOp.trackNum = trackNum
+            copyOp.trackCount = tracks.count
+            copyQueue.addOperation(copyOp)
+            trackNum += 1
+        }
     }
 }
-
-

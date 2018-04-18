@@ -12,6 +12,9 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
     let sourceURL:URL
     let destURL:URL
     
+    var trackNum:Int = 0
+    var trackCount:Int = 0
+    
     init(source:URL, dest:URL) {
         sourceURL = source
         destURL = dest
@@ -26,6 +29,8 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
         do {
             var dirPathComps = destURL.pathComponents
             dirPathComps.removeLast()
+            
+            ConsoleIO.writeMessage("Copying \(trackNum)/\(trackCount): \(destURL.lastPathComponent)")
             
             let dirPath = dirPathComps.joined(separator: "/")
             
