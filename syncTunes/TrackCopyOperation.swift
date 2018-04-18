@@ -37,8 +37,9 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
             try fileMan.createDirectory(atPath: dirPath, withIntermediateDirectories: true, attributes: nil)
             
             try fileMan.copyItem(atPath: sourceURL.path, toPath: destURL.path)
+            
         } catch let e {
-            print ("ERROR copying file: \(e.localizedDescription)")
+            ConsoleIO.writeMessage("ERROR copying file: \(e.localizedDescription)")
         }
     }
 }

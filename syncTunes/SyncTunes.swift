@@ -52,6 +52,8 @@ class SyncTunes {
         createOutputDir()
         writePlaylistFiles()
         copyTracksToOutputDir()
+        
+        ConsoleIO.writeMessage("Done")
     }
     
     func scanInputDirectory () {
@@ -177,5 +179,6 @@ class SyncTunes {
             copyQueue.addOperation(copyOp)
             trackNum += 1
         }
+        copyQueue.waitUntilAllOperationsAreFinished()
     }
 }
