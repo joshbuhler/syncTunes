@@ -25,12 +25,10 @@ class Track {
     func parseTrackTxt (txt:String) {
         self.supportedType = checkFileType(txt: txt)
         
-        let fileText:String? = txt.components(separatedBy: "\r")[1]
-        
-        if let fText = fileText {
+        let fileComponents:[String] = txt.components(separatedBy: "\r")
+        if let fText = fileComponents.last {
             self.sourceURL = URL(fileURLWithPath: fText)
         }
-            
         findTrackMetadata(txt: txt)
     }
     
