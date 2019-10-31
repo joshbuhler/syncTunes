@@ -26,8 +26,10 @@ class Track {
         self.supportedType = checkFileType(txt: txt)
         
         let fileComponents:[String] = txt.components(separatedBy: "\r")
-        if let fText = fileComponents.last {
-            self.sourceURL = URL(fileURLWithPath: fText)
+        if (fileComponents.count >= 2) {
+            let fText = fileComponents[1]
+                print ("fText: \(fText)")
+                self.sourceURL = URL(fileURLWithPath: fText)
         }
         findTrackMetadata(txt: txt)
     }
