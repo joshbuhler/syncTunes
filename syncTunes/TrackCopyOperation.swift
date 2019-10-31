@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import RevHash
 
 class TrackCopyOperation: Operation, FileManagerDelegate {
 
@@ -36,7 +37,15 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
             
             try fileMan.createDirectory(atPath: dirPath, withIntermediateDirectories: true, attributes: nil)
             
+            let hash = revHash(of: sourceURL.path)
+            print ("[hash] \(hash)")
+            
+            
+            let dataHash = revHash(of: try! Data(contentsOf: sourceURL))
+            print ("[hash] data: \(dataHash)")
+            
             try fileMan.copyItem(atPath: sourceURL.path, toPath: destURL.path)
+            
             
         } catch let e {
             ConsoleIO.writeMessage("ERROR copying file: \(e.localizedDescription)")

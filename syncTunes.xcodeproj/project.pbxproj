@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		5C7DE1682081970A005F88E4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE1672081970A005F88E4 /* Track.swift */; };
 		5C7DE17620819F72005F88E4 /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE17520819F72005F88E4 /* TrackTests.swift */; };
 		5C7DE1772081A01D005F88E4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE1672081970A005F88E4 /* Track.swift */; };
+		5C92E786236A892100E5C69C /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5C92E785236A892100E5C69C /* RevHash */; };
 		5CD80026207D85540081C1FA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80025207D85540081C1FA /* main.swift */; };
 		5CD80032207D86200081C1FA /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8002F207D86200081C1FA /* ConsoleIO.swift */; };
 		5CD80034207D86200081C1FA /* SyncTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80031207D86200081C1FA /* SyncTunes.swift */; };
@@ -41,6 +42,8 @@
 		5C7DE17120819F4A005F88E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C7DE17520819F72005F88E4 /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 		5C92E77C236A84B300E5C69C /* syncTunes.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = syncTunes.xctestplan; sourceTree = "<group>"; };
+		5C92E780236A87FC00E5C69C /* libcommonCrypto.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcommonCrypto.tbd; path = usr/lib/system/libcommonCrypto.tbd; sourceTree = SDKROOT; };
+		5C92E781236A880E00E5C69C /* CryptoTokenKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoTokenKit.framework; path = System/Library/Frameworks/CryptoTokenKit.framework; sourceTree = SDKROOT; };
 		5CD80022207D85540081C1FA /* syncTunes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = syncTunes; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD80025207D85540081C1FA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5CD8002D207D86140081C1FA /* CapTunes2.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = CapTunes2.m3u; sourceTree = "<group>"; };
@@ -61,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C92E786236A892100E5C69C /* RevHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,15 @@
 			path = syncTunesTests;
 			sourceTree = "<group>";
 		};
+		5C92E77F236A87FC00E5C69C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C92E781236A880E00E5C69C /* CryptoTokenKit.framework */,
+				5C92E780236A87FC00E5C69C /* libcommonCrypto.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5CD80019207D85540081C1FA = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +97,7 @@
 				5CD80024207D85540081C1FA /* syncTunes */,
 				5C7DE16E20819F4A005F88E4 /* syncTunesTests */,
 				5CD80023207D85540081C1FA /* Products */,
+				5C92E77F236A87FC00E5C69C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +167,9 @@
 			dependencies = (
 			);
 			name = syncTunes;
+			packageProductDependencies = (
+				5C92E785236A892100E5C69C /* RevHash */,
+			);
 			productName = syncTunes;
 			productReference = 5CD80022207D85540081C1FA /* syncTunes */;
 			productType = "com.apple.product-type.tool";
@@ -185,6 +202,9 @@
 				en,
 			);
 			mainGroup = 5CD80019207D85540081C1FA;
+			packageReferences = (
+				5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */,
+			);
 			productRefGroup = 5CD80023207D85540081C1FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,7 +260,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
 				INFOPLIST_FILE = syncTunesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.buhler.syncTunesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -254,7 +278,11 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
 				INFOPLIST_FILE = syncTunesTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = me.buhler.syncTunesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -369,7 +397,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -378,6 +407,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -389,6 +422,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6NNC3GTWWZ;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -426,6 +463,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LinusU/RevHash.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5C92E785236A892100E5C69C /* RevHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
+			productName = RevHash;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5CD8001A207D85540081C1FA /* Project object */;
 }
