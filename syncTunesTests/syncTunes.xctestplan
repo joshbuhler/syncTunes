@@ -1,0 +1,43 @@
+{
+  "configurations" : [
+    {
+      "id" : "D0925DB0-9B88-45D3-B0CD-E85382B786B0",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-i"
+      },
+      {
+        "argument" : "\/Users\/joshuabuhler\/Projects\/_jb\/syncTunes\/TestFiles\/playlists"
+      },
+      {
+        "argument" : "-o"
+      },
+      {
+        "argument" : "\/Users\/joshuabuhler\/Desktop\/syncTunes"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:syncTunes.xcodeproj",
+      "identifier" : "5CD80021207D85540081C1FA",
+      "name" : "syncTunes"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:syncTunes.xcodeproj",
+        "identifier" : "5C7DE16C20819F4A005F88E4",
+        "name" : "syncTunesTests"
+      }
+    }
+  ],
+  "version" : 1
+}

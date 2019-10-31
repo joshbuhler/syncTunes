@@ -40,6 +40,7 @@
 		5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = syncTunesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C7DE17120819F4A005F88E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C7DE17520819F72005F88E4 /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
+		5C92E77C236A84B300E5C69C /* syncTunes.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = syncTunes.xctestplan; sourceTree = "<group>"; };
 		5CD80022207D85540081C1FA /* syncTunes */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = syncTunes; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD80025207D85540081C1FA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		5CD8002D207D86140081C1FA /* CapTunes2.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = CapTunes2.m3u; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				5C7DE17520819F72005F88E4 /* TrackTests.swift */,
+				5C92E77C236A84B300E5C69C /* syncTunes.xctestplan */,
 				5C7DE17120819F4A005F88E4 /* Info.plist */,
 			);
 			path = syncTunesTests;
@@ -310,7 +312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -364,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
