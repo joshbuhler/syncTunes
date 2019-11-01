@@ -57,7 +57,7 @@ class SyncTunes {
     }
     
     func scanInputDirectory () {
-        ConsoleIO.writeMessage("Scanning for playlists in \(inputDir)")
+        ConsoleIO.writeMessage("Scanning for playlists in \(self.inputURL)")
         
         let resourceKeys : [URLResourceKey] = [.creationDateKey, .isDirectoryKey]
         let enumerator = FileManager.default.enumerator(at: inputURL,
@@ -94,17 +94,15 @@ class SyncTunes {
     }
     
     func createOutputDir () {
-        let outputURL = URL.init(fileURLWithPath: outputPath)
-        
         // build the output file
         let fileMan = FileManager.default
         
-        if (fileMan.fileExists(atPath: outputPath)) {
+        if (fileMan.fileExists(atPath: self.outputURL.absoluteString)) {
             try? fileMan.removeItem(at: outputURL)
         }
         
         do {
-            try fileMan.createDirectory(at: outputURL, withIntermediateDirectories: false, attributes: nil)
+            try fileMan.createDirectory(at: self.outputURL, withIntermediateDirectories: false, attributes: nil)
         } catch let e {
             print ("ERROR: \(e)")
             return
@@ -180,5 +178,31 @@ class SyncTunes {
             trackNum += 1
         }
         copyQueue.waitUntilAllOperationsAreFinished()
+    }
+    
+    func getTargetFileList (targetURL:URL) -> [URL] {
+        let fileMan = FileManager.default
+        
+        let resourceKeys = [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey]
+        let directoryEnumerator = fileMan.enumerator(at: targetURL,
+                                                     includingPropertiesForKeys: resourceKeys,
+                                                     options: [.skipsHiddenFiles],
+                                                     errorHandler: nil)!
+        
+        var fileURLs: [URL] = []
+        let keySet = Set<URLResourceKey>([URLResourceKey.isDirectoryKey])
+        for case let fileURL as URL in directoryEnumerator {
+            guard let resourceValues = try? fileURL.resourceValues(forKeys: keySet),
+                let isDirectory = resourceValues.isDirectory
+                else {
+                    continue
+            }
+            
+            if (!isDirectory) {
+                fileURLs.append(fileURL)
+            }
+        }
+        
+        return fileURLs
     }
 }

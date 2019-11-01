@@ -18,6 +18,12 @@
 		5CD80026207D85540081C1FA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80025207D85540081C1FA /* main.swift */; };
 		5CD80032207D86200081C1FA /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8002F207D86200081C1FA /* ConsoleIO.swift */; };
 		5CD80034207D86200081C1FA /* SyncTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80031207D86200081C1FA /* SyncTunes.swift */; };
+		5CFD9918236CEEFF009DA29B /* SyncTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD9917236CEEFF009DA29B /* SyncTunesTests.swift */; };
+		5CFD991B236CF360009DA29B /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD991A236CF360009DA29B /* RevHash */; };
+		5CFD991E236CF4F6009DA29B /* SyncTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80031207D86200081C1FA /* SyncTunes.swift */; };
+		5CFD991F236CF506009DA29B /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3AD789208696960011D247 /* Playlist.swift */; };
+		5CFD9920236CF515009DA29B /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8002F207D86200081C1FA /* ConsoleIO.swift */; };
+		5CFD9921236CF5AE009DA29B /* TrackCopyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,6 +56,7 @@
 		5CD8002E207D86140081C1FA /* CapTunes.m3u */ = {isa = PBXFileReference; lastKnownFileType = text; path = CapTunes.m3u; sourceTree = "<group>"; };
 		5CD8002F207D86200081C1FA /* ConsoleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
 		5CD80031207D86200081C1FA /* SyncTunes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncTunes.swift; sourceTree = "<group>"; };
+		5CFD9917236CEEFF009DA29B /* SyncTunesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTunesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CFD991B236CF360009DA29B /* RevHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				5C7DE17520819F72005F88E4 /* TrackTests.swift */,
+				5CFD9917236CEEFF009DA29B /* SyncTunesTests.swift */,
 				5C92E77C236A84B300E5C69C /* syncTunes.xctestplan */,
 				5C7DE17120819F4A005F88E4 /* Info.plist */,
 			);
@@ -148,8 +157,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				5CFD991D236CF428009DA29B /* PBXTargetDependency */,
 			);
 			name = syncTunesTests;
+			packageProductDependencies = (
+				5CFD991A236CF360009DA29B /* RevHash */,
+			);
 			productName = syncTunesTests;
 			productReference = 5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -233,7 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7DE17620819F72005F88E4 /* TrackTests.swift in Sources */,
+				5CFD9921236CF5AE009DA29B /* TrackCopyOperation.swift in Sources */,
 				5C7DE1772081A01D005F88E4 /* Track.swift in Sources */,
+				5CFD991E236CF4F6009DA29B /* SyncTunes.swift in Sources */,
+				5CFD9920236CF515009DA29B /* ConsoleIO.swift in Sources */,
+				5CFD9918236CEEFF009DA29B /* SyncTunesTests.swift in Sources */,
+				5CFD991F236CF506009DA29B /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +269,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5CFD991D236CF428009DA29B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 5CFD991C236CF428009DA29B /* RevHash */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5C7DE17320819F4A005F88E4 /* Debug */ = {
@@ -477,6 +502,16 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		5C92E785236A892100E5C69C /* RevHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
+			productName = RevHash;
+		};
+		5CFD991A236CF360009DA29B /* RevHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
+			productName = RevHash;
+		};
+		5CFD991C236CF428009DA29B /* RevHash */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
 			productName = RevHash;
