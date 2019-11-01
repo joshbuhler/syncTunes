@@ -8,8 +8,15 @@
 import Cocoa
 import RevHash
 
+enum TrackOperationType {
+    case copy
+    case delete
+}
+
 class TrackCopyOperation: Operation, FileManagerDelegate {
 
+    let operationType:TrackOperationType = .copy
+    
     let sourceURL:URL
     let destURL:URL
     
