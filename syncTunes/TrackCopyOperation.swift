@@ -31,18 +31,31 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
             var dirPathComps = destURL.pathComponents
             dirPathComps.removeLast()
             
-            ConsoleIO.writeMessage("Copying \(trackNum)/\(trackCount): \(destURL.lastPathComponent)")
+//            ConsoleIO.writeMessage("Copying \(trackNum)/\(trackCount): \(destURL.lastPathComponent)")
+//            ConsoleIO.writeMessage("\t from: \(sourceURL)")
+//            ConsoleIO.writeMessage("\t to: \(destURL)")
+            
+            print("Copying \(trackNum)/\(trackCount): \(destURL.lastPathComponent)")
+            print("\t from: \(sourceURL)")
+            print("\t to: \(destURL)")
             
             let dirPath = dirPathComps.joined(separator: "/")
             
             try fileMan.createDirectory(atPath: dirPath, withIntermediateDirectories: true, attributes: nil)
             
-            let hash = revHash(of: sourceURL.path)
-            print ("[hash] \(hash)")
+//            let hash = revHash(of: sourceURL.path)
+//            print ("[hash] \(hash)")
             
+            do {
+                let sourceHash = revHash(of: try Data(contentsOf: sourceURL))
+                print ("[hash3] source data: \(sourceHash)")
+                
+                let destHash = revHash(of: try Data(contentsOf: destURL))
+                print ("[hash3] dest data: \(destHash)")
+            } catch let error {
+                print ("[hash] hashError: \(error)")
+            }
             
-            let dataHash = revHash(of: try! Data(contentsOf: sourceURL))
-            print ("[hash] data: \(dataHash)")
             
             try fileMan.copyItem(atPath: sourceURL.path, toPath: destURL.path)
             
