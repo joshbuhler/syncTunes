@@ -72,3 +72,40 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
         }
     }
 }
+
+class TrackDeleteOperation: Operation, FileManagerDelegate {
+
+    let operationType:TrackOperationType = .delete
+    
+    let targetURL:URL
+    
+    var trackNum:Int = 0
+    var trackCount:Int = 0
+    
+    init(target:URL) {
+        targetURL = target
+    }
+    
+    override func main() {
+        if (self.isCancelled) {
+            return
+        }
+        
+        let fileMan = FileManager.default
+        do {
+            var dirPathComps = targetURL.pathComponents
+            dirPathComps.removeLast()
+            
+//            ConsoleIO.writeMessage("Copying \(trackNum)/\(trackCount): \(destURL.lastPathComponent)")
+//            ConsoleIO.writeMessage("\t from: \(sourceURL)")
+//            ConsoleIO.writeMessage("\t to: \(destURL)")
+            
+            print("deleting \(trackNum)/\(trackCount): \(targetURL.lastPathComponent)")
+            print("\t to: \(targetURL)")
+            
+            try fileMan.removeItem(at: targetURL)
+        } catch let e {
+            ConsoleIO.writeMessage("ERROR deleting file: \(e.localizedDescription)")
+        }
+    }
+}
