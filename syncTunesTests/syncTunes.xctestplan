@@ -9,7 +9,15 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:syncTunes.xcodeproj",
+          "identifier" : "5CD80021207D85540081C1FA",
+          "name" : "syncTunes"
+        }
+      ]
+    },
     "commandLineArgumentEntries" : [
       {
         "argument" : "-i"
