@@ -25,6 +25,8 @@
 		5CFD9920236CF515009DA29B /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8002F207D86200081C1FA /* ConsoleIO.swift */; };
 		5CFD9921236CF5AE009DA29B /* TrackCopyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */; };
 		5CFD9929236CFAB8009DA29B /* TestOutputDir in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD9928236CFAB8009DA29B /* TestOutputDir */; };
+		5CFD992C236D05AA009DA29B /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD992B236D05AA009DA29B /* DifferenceKit */; };
+		5CFD992E236D069D009DA29B /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD992D236D069D009DA29B /* DifferenceKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CFD992E236D069D009DA29B /* DifferenceKit in Frameworks */,
 				5CFD991B236CF360009DA29B /* RevHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CFD992C236D05AA009DA29B /* DifferenceKit in Frameworks */,
 				5C92E786236A892100E5C69C /* RevHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,11 +164,13 @@
 			buildRules = (
 			);
 			dependencies = (
+				5CFD9930236D06A9009DA29B /* PBXTargetDependency */,
 				5CFD991D236CF428009DA29B /* PBXTargetDependency */,
 			);
 			name = syncTunesTests;
 			packageProductDependencies = (
 				5CFD991A236CF360009DA29B /* RevHash */,
+				5CFD992D236D069D009DA29B /* DifferenceKit */,
 			);
 			productName = syncTunesTests;
 			productReference = 5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */;
@@ -185,6 +191,7 @@
 			name = syncTunes;
 			packageProductDependencies = (
 				5C92E785236A892100E5C69C /* RevHash */,
+				5CFD992B236D05AA009DA29B /* DifferenceKit */,
 			);
 			productName = syncTunes;
 			productReference = 5CD80022207D85540081C1FA /* syncTunes */;
@@ -220,6 +227,7 @@
 			mainGroup = 5CD80019207D85540081C1FA;
 			packageReferences = (
 				5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */,
+				5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */,
 			);
 			productRefGroup = 5CD80023207D85540081C1FA /* Products */;
 			projectDirPath = "";
@@ -278,6 +286,10 @@
 		5CFD991D236CF428009DA29B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = 5CFD991C236CF428009DA29B /* RevHash */;
+		};
+		5CFD9930236D06A9009DA29B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 5CFD992F236D06A9009DA29B /* DifferenceKit */;
 		};
 /* End PBXTargetDependency section */
 
@@ -502,6 +514,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ra1028/DifferenceKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -519,6 +539,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
 			productName = RevHash;
+		};
+		5CFD992B236D05AA009DA29B /* DifferenceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */;
+			productName = DifferenceKit;
+		};
+		5CFD992D236D069D009DA29B /* DifferenceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */;
+			productName = DifferenceKit;
+		};
+		5CFD992F236D06A9009DA29B /* DifferenceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */;
+			productName = DifferenceKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

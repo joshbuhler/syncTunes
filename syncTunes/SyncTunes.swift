@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DifferenceKit
 
 enum OptionType {
     case inputPath(String)
@@ -48,8 +49,7 @@ class SyncTunes {
         buildTrackList()
         trimPathAncestors()
         
-        let sourceURLs = getTrackURLs(trackList: self.tracks)
-
+        clearDeletedTracks()
         
         // file ops
         // TODO: contents of target dir
@@ -63,6 +63,32 @@ class SyncTunes {
         copyTracksToOutputDir()
         
         ConsoleIO.writeMessage("Done")
+    }
+    
+    func clearDeletedTracks () {
+        let sourceURLs = getTrackURLs(trackList: self.tracks)
+        let targetURLs = getTargetFileList(targetURL: self.outputURL)
+        
+        let diffList = StagedChangeset(source: targetURLs, target: sourceURLs)
+        
+        //print ("diff: \(diffList)")
+        
+        var toDelete:[URL] = [URL]()
+        for change in diffList {
+            for del in change.elementDeleted {
+                let url = targetURLs[del.element]
+                toDelete.append(url)
+            }
+        }
+        
+        let fileMan = FileManager.default
+        for delURL in toDelete {
+            do {
+                try fileMan.removeItem(at: delURL)
+            } catch let error {
+                print ("⚠️  Failed to delete: \(delURL) - \(error)")
+            }
+        }
     }
     
     func scanInputDirectory () {
@@ -229,3 +255,5 @@ class SyncTunes {
         return fileURLs
     }
 }
+
+extension URL: Differentiable {}
