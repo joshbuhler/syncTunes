@@ -76,7 +76,5 @@ class Track {
         returnString += self.playlistPath
         
         return returnString
-    }
-    
-    
+    }    
 }

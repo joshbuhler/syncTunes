@@ -48,7 +48,16 @@ class SyncTunes {
         buildTrackList()
         trimPathAncestors()
         
+        let sourceURLs = getTrackURLs(trackList: self.tracks)
+
+        
         // file ops
+        // TODO: contents of target dir
+        // TODO: diff file lists
+        // TODO: perform any deletions needed
+        // TODO: remove dupes from copy list
+        // TODO: copy remaining list
+        
         createOutputDir()
         writePlaylistFiles()
         copyTracksToOutputDir()
@@ -91,6 +100,20 @@ class SyncTunes {
             tracks.append(contentsOf: p.tracks)
             print ("totalTracks: \(tracks.count)")
         }
+    }
+    
+    func getTrackURLs (trackList:[Track]) -> [URL] {
+        var trackURLS = [URL]()
+        
+        trackURLS = trackList.map({ (track) -> URL in
+            return track.sourceURL
+        })
+        
+        trackURLS.sort { (t1, t2) -> Bool in
+            return t1.path < t2.path
+        }
+        
+        return trackURLS
     }
     
     func createOutputDir () {
