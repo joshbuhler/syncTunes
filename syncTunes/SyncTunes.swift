@@ -58,9 +58,9 @@ class SyncTunes {
         // TODO: remove dupes from copy list
         // TODO: copy remaining list
         
-        createOutputDir()
-        writePlaylistFiles()
-        copyTracksToOutputDir()
+        //createOutputDir()
+        //writePlaylistFiles()
+        //copyTracksToOutputDir()
         
         ConsoleIO.writeMessage("Done")
     }
@@ -85,9 +85,41 @@ class SyncTunes {
         for delURL in toDelete {
             do {
                 try fileMan.removeItem(at: delURL)
+                
+                // isn't this why I created TrackDeleteOperation? Is that needed?
+                // after each deletion, look at the dir - is it now empty?
+                
+                let parentDir = delURL.deletingLastPathComponent()
+//                let parentContents = try fileMan.contentsOfDirectory(at: parentDir,
+//                                                                     includingPropertiesForKeys:nil,
+//                                                                     options: .skipsHiddenFiles)
+//                if (parentContents.count == 0) {
+//                    print ("deleting empty")
+//                    try fileMan.removeItem(at: parentDir)
+//                }
+                self.pruneIfEmpty(delURL: parentDir)
             } catch let error {
                 print ("⚠️  Failed to delete: \(delURL) - \(error)")
             }
+        }
+    }
+    
+    func pruneIfEmpty (delURL:URL) {
+        print ("pruneIfEmpty: \(delURL)")
+        let fileMan = FileManager.default
+        do {
+            let dirContents = try fileMan.contentsOfDirectory(at: delURL,
+                                                                 includingPropertiesForKeys:nil,
+                                                                 options: .skipsHiddenFiles)
+            if (dirContents.count == 0) {
+                print ("deleting empty: \(delURL)")
+                try fileMan.removeItem(at: delURL)
+                let parentDir = delURL.deletingLastPathComponent()
+                print ("\tparentDir: \(parentDir)")
+                self.pruneIfEmpty(delURL: parentDir)
+            }
+        } catch let e {
+            print ("pruneIfEmpty error: \(e)")
         }
     }
     
@@ -230,6 +262,32 @@ class SyncTunes {
     }
     
     func getTargetFileList (targetURL:URL) -> [URL] {
+        let fileMan = FileManager.default
+        
+        let resourceKeys = [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey]
+        let directoryEnumerator = fileMan.enumerator(at: targetURL,
+                                                     includingPropertiesForKeys: resourceKeys,
+                                                     options: [.skipsHiddenFiles],
+                                                     errorHandler: nil)!
+        
+        var fileURLs: [URL] = []
+        let keySet = Set<URLResourceKey>([URLResourceKey.isDirectoryKey])
+        for case let fileURL as URL in directoryEnumerator {
+            guard let resourceValues = try? fileURL.resourceValues(forKeys: keySet),
+                let isDirectory = resourceValues.isDirectory
+                else {
+                    continue
+            }
+            
+            if (!isDirectory) {
+                fileURLs.append(fileURL)
+            }
+        }
+        
+        return fileURLs
+    }
+    
+    func pruneEmptyDirs (targetURL:URL) -> [URL] {
         let fileMan = FileManager.default
         
         let resourceKeys = [URLResourceKey.nameKey, URLResourceKey.isDirectoryKey]

@@ -13,20 +13,15 @@
 		5C5DAE6420841B4000ABB844 /* TestPlaylist.m3u in Resources */ = {isa = PBXBuildFile; fileRef = 5C5DAE6320841B4000ABB844 /* TestPlaylist.m3u */; };
 		5C7DE1682081970A005F88E4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE1672081970A005F88E4 /* Track.swift */; };
 		5C7DE17620819F72005F88E4 /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE17520819F72005F88E4 /* TrackTests.swift */; };
-		5C7DE1772081A01D005F88E4 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7DE1672081970A005F88E4 /* Track.swift */; };
 		5C92E786236A892100E5C69C /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5C92E785236A892100E5C69C /* RevHash */; };
 		5CD80026207D85540081C1FA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80025207D85540081C1FA /* main.swift */; };
 		5CD80032207D86200081C1FA /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8002F207D86200081C1FA /* ConsoleIO.swift */; };
 		5CD80034207D86200081C1FA /* SyncTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80031207D86200081C1FA /* SyncTunes.swift */; };
 		5CFD9918236CEEFF009DA29B /* SyncTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFD9917236CEEFF009DA29B /* SyncTunesTests.swift */; };
-		5CFD991B236CF360009DA29B /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD991A236CF360009DA29B /* RevHash */; };
-		5CFD991E236CF4F6009DA29B /* SyncTunes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD80031207D86200081C1FA /* SyncTunes.swift */; };
-		5CFD991F236CF506009DA29B /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3AD789208696960011D247 /* Playlist.swift */; };
-		5CFD9920236CF515009DA29B /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD8002F207D86200081C1FA /* ConsoleIO.swift */; };
-		5CFD9921236CF5AE009DA29B /* TrackCopyOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5DAE612083F64B00ABB844 /* TrackCopyOperation.swift */; };
 		5CFD9929236CFAB8009DA29B /* TestOutputDir in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD9928236CFAB8009DA29B /* TestOutputDir */; };
 		5CFD992C236D05AA009DA29B /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD992B236D05AA009DA29B /* DifferenceKit */; };
-		5CFD992E236D069D009DA29B /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD992D236D069D009DA29B /* DifferenceKit */; };
+		5CFD993A236F9BF2009DA29B /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD9939236F9BF2009DA29B /* RevHash */; };
+		5CFD993C236F9BF5009DA29B /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CFD993B236F9BF5009DA29B /* DifferenceKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -68,8 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CFD992E236D069D009DA29B /* DifferenceKit in Frameworks */,
-				5CFD991B236CF360009DA29B /* RevHash in Frameworks */,
+				5CFD993C236F9BF5009DA29B /* DifferenceKit in Frameworks */,
+				5CFD993A236F9BF2009DA29B /* RevHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,13 +159,13 @@
 			buildRules = (
 			);
 			dependencies = (
-				5CFD9930236D06A9009DA29B /* PBXTargetDependency */,
-				5CFD991D236CF428009DA29B /* PBXTargetDependency */,
+				5CFD9938236F9BED009DA29B /* PBXTargetDependency */,
+				5CFD9936236F9BE9009DA29B /* PBXTargetDependency */,
 			);
 			name = syncTunesTests;
 			packageProductDependencies = (
-				5CFD991A236CF360009DA29B /* RevHash */,
-				5CFD992D236D069D009DA29B /* DifferenceKit */,
+				5CFD9939236F9BF2009DA29B /* RevHash */,
+				5CFD993B236F9BF5009DA29B /* DifferenceKit */,
 			);
 			productName = syncTunesTests;
 			productReference = 5C7DE16D20819F4A005F88E4 /* syncTunesTests.xctest */;
@@ -258,12 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C7DE17620819F72005F88E4 /* TrackTests.swift in Sources */,
-				5CFD9921236CF5AE009DA29B /* TrackCopyOperation.swift in Sources */,
-				5C7DE1772081A01D005F88E4 /* Track.swift in Sources */,
-				5CFD991E236CF4F6009DA29B /* SyncTunes.swift in Sources */,
-				5CFD9920236CF515009DA29B /* ConsoleIO.swift in Sources */,
 				5CFD9918236CEEFF009DA29B /* SyncTunesTests.swift in Sources */,
-				5CFD991F236CF506009DA29B /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,13 +273,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5CFD991D236CF428009DA29B /* PBXTargetDependency */ = {
+		5CFD9936236F9BE9009DA29B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 5CFD991C236CF428009DA29B /* RevHash */;
+			productRef = 5CFD9935236F9BE9009DA29B /* RevHash */;
 		};
-		5CFD9930236D06A9009DA29B /* PBXTargetDependency */ = {
+		5CFD9938236F9BED009DA29B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = 5CFD992F236D06A9009DA29B /* DifferenceKit */;
+			productRef = 5CFD9937236F9BED009DA29B /* DifferenceKit */;
 		};
 /* End PBXTargetDependency section */
 
@@ -530,27 +520,27 @@
 			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
 			productName = RevHash;
 		};
-		5CFD991A236CF360009DA29B /* RevHash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
-			productName = RevHash;
-		};
-		5CFD991C236CF428009DA29B /* RevHash */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
-			productName = RevHash;
-		};
 		5CFD992B236D05AA009DA29B /* DifferenceKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */;
 			productName = DifferenceKit;
 		};
-		5CFD992D236D069D009DA29B /* DifferenceKit */ = {
+		5CFD9935236F9BE9009DA29B /* RevHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
+			productName = RevHash;
+		};
+		5CFD9937236F9BED009DA29B /* DifferenceKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */;
 			productName = DifferenceKit;
 		};
-		5CFD992F236D06A9009DA29B /* DifferenceKit */ = {
+		5CFD9939236F9BF2009DA29B /* RevHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5C92E784236A892100E5C69C /* XCRemoteSwiftPackageReference "RevHash" */;
+			productName = RevHash;
+		};
+		5CFD993B236F9BF5009DA29B /* DifferenceKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5CFD992A236D05AA009DA29B /* XCRemoteSwiftPackageReference "DifferenceKit" */;
 			productName = DifferenceKit;

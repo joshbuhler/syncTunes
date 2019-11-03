@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import syncTunes
 
 class TrackTests: XCTestCase {
 
