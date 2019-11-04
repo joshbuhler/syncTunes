@@ -52,13 +52,10 @@ class SyncTunes {
         clearDeletedTracks()
         
         // file ops
-        // TODO: contents of target dir
-        // TODO: diff file lists
-        // TODO: perform any deletions needed
         // TODO: remove dupes from copy list
         // TODO: copy remaining list
         
-        //createOutputDir()
+        createOutputDir()
         //writePlaylistFiles()
         //copyTracksToOutputDir()
         
@@ -90,13 +87,6 @@ class SyncTunes {
                 // after each deletion, look at the dir - is it now empty?
                 
                 let parentDir = delURL.deletingLastPathComponent()
-//                let parentContents = try fileMan.contentsOfDirectory(at: parentDir,
-//                                                                     includingPropertiesForKeys:nil,
-//                                                                     options: .skipsHiddenFiles)
-//                if (parentContents.count == 0) {
-//                    print ("deleting empty")
-//                    try fileMan.removeItem(at: parentDir)
-//                }
                 self.pruneIfEmpty(delURL: parentDir)
             } catch let error {
                 print ("⚠️  Failed to delete: \(delURL) - \(error)")
@@ -174,14 +164,17 @@ class SyncTunes {
         return trackURLS
     }
     
-    func createOutputDir () {
+    func createOutputDir (overwriteExisting:Bool = false) {
         // build the output file
         let fileMan = FileManager.default
         
         if (fileMan.fileExists(atPath: self.outputURL.absoluteString)) {
-            try? fileMan.removeItem(at: outputURL)
+            if (overwriteExisting) {
+                try? fileMan.removeItem(at: outputURL)
+            } else {
+                return
+            }
         }
-        
         do {
             try fileMan.createDirectory(at: self.outputURL, withIntermediateDirectories: false, attributes: nil)
         } catch let e {
