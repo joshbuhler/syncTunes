@@ -52,23 +52,36 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
             
 //            let hash = revHash(of: sourceURL.path)
 //            print ("[hash] \(hash)")
-            
-            if (fileMan.fileExists(atPath: destURL.absoluteString)) {
+            print("dest: \(destURL.absoluteString)")
+            var sourceHash = ""
+            var destHash = ""
+            if (fileMan.fileExists(atPath: destURL.path)) {
                 do {
-                    let sourceHash = revHash(of: try Data(contentsOf: sourceURL))
+                    sourceHash = revHash(of: try Data(contentsOf: sourceURL))
                     print ("[hash3] source data: \(sourceHash)")
                 } catch let error {
                     print ("[hash] source hashError: \(error)")
                 }
                 
                 do {
-                    let destHash = revHash(of: try Data(contentsOf: destURL))
+                    destHash = revHash(of: try Data(contentsOf: destURL))
                     print ("[hash3] dest data: \(destHash)")
                 } catch let error {
                     print ("[hash] dest hashError: \(error)")
                 }
+                
+                if ((sourceHash.isEmpty == false && destHash.isEmpty == false) &&
+                    sourceHash == destHash) {
+                    print ("hash match - skip copy")
+                    return
+                } else {
+                    do {
+                        try fileMan.removeItem(at: destURL)
+                    } catch let error {
+                        print ("error removing old file: \(destURL)")
+                    }
+                }
             }
-            
             
             try fileMan.copyItem(atPath: sourceURL.path, toPath: destURL.path)
             

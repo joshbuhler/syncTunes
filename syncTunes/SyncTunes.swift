@@ -284,6 +284,8 @@ class SyncTunes {
     
     let copyQueue:OperationQueue = OperationQueue()
     func copyTracksToOutputDir () {
+        
+        copyQueue.maxConcurrentOperationCount = 1
         var trackNum = 1
         for t in tracks {
             let copyOp = TrackCopyOperation(source: t.sourceURL, dest: t.destURL)
