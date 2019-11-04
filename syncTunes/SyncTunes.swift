@@ -56,8 +56,8 @@ class SyncTunes {
         // TODO: copy remaining list
         
         createOutputDir()
-        //writePlaylistFiles()
-        //copyTracksToOutputDir()
+        writePlaylistFiles()
+        copyTracksToOutputDir()
         
         ConsoleIO.writeMessage("Done")
     }
@@ -68,7 +68,7 @@ class SyncTunes {
         
         let diffList = StagedChangeset(source: targetURLs, target: sourceURLs)
         
-        //print ("diff: \(diffList)")
+        print ("diff: \(diffList)")
         
         var toDelete:[URL] = [URL]()
         for change in diffList {
@@ -154,7 +154,7 @@ class SyncTunes {
         var trackURLS = [URL]()
         
         trackURLS = trackList.map({ (track) -> URL in
-            return track.sourceURL
+            return track.destURL
         })
         
         trackURLS.sort { (t1, t2) -> Bool in
@@ -168,7 +168,7 @@ class SyncTunes {
         // build the output file
         let fileMan = FileManager.default
         
-        if (fileMan.fileExists(atPath: self.outputURL.absoluteString)) {
+        if (fileMan.fileExists(atPath: self.outputURL.path)) {
             if (overwriteExisting) {
                 try? fileMan.removeItem(at: outputURL)
             } else {
@@ -239,6 +239,47 @@ class SyncTunes {
             t.destURL = newDestURL
             t.playlistPath = "\\" + startComps.joined(separator: "\\")
         }
+    }
+    
+    func trimPathAncestors2 (urlList:[URL]) -> [URL] {
+        var pathCompsToTrim = 0
+        
+        // at most, we'll trim 10 path components
+        for i in 0..<10 {
+            
+            var cPathComp:String = ""
+            let pathComps = urlList[0].pathComponents
+            cPathComp = pathComps[i]
+            
+            var allMatch = true
+            for t in urlList {
+                let pathComps = t.pathComponents
+                if (pathComps[i] != cPathComp) {
+                    // stop looking
+                    allMatch = false
+                    break
+                }
+            }
+            
+            if (allMatch == false) {
+                break
+            } else {
+                pathCompsToTrim = i
+            }
+        }
+        
+        var trimmedURLs = [URL]()
+        for t in urlList {
+            var startComps = t.pathComponents
+            startComps.removeFirst(pathCompsToTrim)
+            
+            var newDestURL = outputURL
+            for c in startComps {
+                newDestURL.appendPathComponent(c)
+            }
+            trimmedURLs.append(newDestURL)
+        }
+        return trimmedURLs
     }
     
     let copyQueue:OperationQueue = OperationQueue()

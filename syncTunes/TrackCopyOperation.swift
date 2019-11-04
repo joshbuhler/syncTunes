@@ -53,14 +53,20 @@ class TrackCopyOperation: Operation, FileManagerDelegate {
 //            let hash = revHash(of: sourceURL.path)
 //            print ("[hash] \(hash)")
             
-            do {
-                let sourceHash = revHash(of: try Data(contentsOf: sourceURL))
-                print ("[hash3] source data: \(sourceHash)")
+            if (fileMan.fileExists(atPath: destURL.absoluteString)) {
+                do {
+                    let sourceHash = revHash(of: try Data(contentsOf: sourceURL))
+                    print ("[hash3] source data: \(sourceHash)")
+                } catch let error {
+                    print ("[hash] source hashError: \(error)")
+                }
                 
-                let destHash = revHash(of: try Data(contentsOf: destURL))
-                print ("[hash3] dest data: \(destHash)")
-            } catch let error {
-                print ("[hash] hashError: \(error)")
+                do {
+                    let destHash = revHash(of: try Data(contentsOf: destURL))
+                    print ("[hash3] dest data: \(destHash)")
+                } catch let error {
+                    print ("[hash] dest hashError: \(error)")
+                }
             }
             
             
