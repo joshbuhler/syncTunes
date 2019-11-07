@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "2482F7E9-153A-441B-886E-E731960C0E70",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:SyncTunes.xcodeproj",
+      "identifier" : "5CEF590C23749ABD0067BA31",
+      "name" : "SyncTunes"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:SyncTunes.xcodeproj",
+        "identifier" : "5CEF591E23749ABE0067BA31",
+        "name" : "SyncTunesTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:SyncTunes.xcodeproj",
+        "identifier" : "5CEF592923749ABE0067BA31",
+        "name" : "SyncTunesUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
