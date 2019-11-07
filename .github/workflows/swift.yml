@@ -9,6 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Package update
+      run: swift package update
     - name: Build
       run: swift build -v
     - name: Run tests
