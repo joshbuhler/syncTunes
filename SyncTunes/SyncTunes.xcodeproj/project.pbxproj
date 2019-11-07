@@ -14,6 +14,7 @@
 		5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */; };
 		5CEF592F23749ABE0067BA31 /* SyncTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */; };
 		5CEF593E23749B8C0067BA31 /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEF593D23749B8C0067BA31 /* RevHash */; };
+		5CEF594123749C280067BA31 /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEF594023749C280067BA31 /* DifferenceKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEF594123749C280067BA31 /* DifferenceKit in Frameworks */,
 				5CEF593E23749B8C0067BA31 /* RevHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,6 +146,7 @@
 			name = SyncTunes;
 			packageProductDependencies = (
 				5CEF593D23749B8C0067BA31 /* RevHash */,
+				5CEF594023749C280067BA31 /* DifferenceKit */,
 			);
 			productName = SyncTunes;
 			productReference = 5CEF590D23749ABD0067BA31 /* SyncTunes.app */;
@@ -219,6 +222,7 @@
 			mainGroup = 5CEF590423749ABD0067BA31;
 			packageReferences = (
 				5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */,
+				5CEF593F23749C280067BA31 /* XCRemoteSwiftPackageReference "DifferenceKit" */,
 			);
 			productRefGroup = 5CEF590E23749ABD0067BA31 /* Products */;
 			projectDirPath = "";
@@ -599,6 +603,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		5CEF593F23749C280067BA31 /* XCRemoteSwiftPackageReference "DifferenceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:ra1028/DifferenceKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -606,6 +618,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */;
 			productName = RevHash;
+		};
+		5CEF594023749C280067BA31 /* DifferenceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CEF593F23749C280067BA31 /* XCRemoteSwiftPackageReference "DifferenceKit" */;
+			productName = DifferenceKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

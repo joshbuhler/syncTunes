@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "DifferenceKit",
+        "repositoryURL": "git@github.com:ra1028/DifferenceKit.git",
+        "state": {
+          "branch": null,
+          "revision": "4eb31f8e85e4cb13732f9664d6e01e507cd592a0",
+          "version": "1.1.3"
+        }
+      },
+      {
         "package": "RevHash",
         "repositoryURL": "git@github.com:LinusU/RevHash.swift.git",
         "state": {
