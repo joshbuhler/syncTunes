@@ -100,6 +100,7 @@ class PlaylistTests: XCTestCase {
         let url_missing = getPlaylistURL(filename: "missing.m3u")
         let plist_missing = Playlist()
         plist_missing.loadFile(url_missing)
+        plist_missing.processPlaylist()
         
         trackCount = plist_missing.tracks.count
         expected = 0
@@ -109,9 +110,16 @@ class PlaylistTests: XCTestCase {
         let url_skipped = getPlaylistURL(filename: "x.m3u")
         let plist_skipped = Playlist()
         plist_skipped.loadFile(url_skipped)
-        // skipping processing
+        // skipping processing here
         
         trackCount = plist_skipped.tracks.count
+        expected = 0
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+        
+        // What if no file is loaded?
+        let plist_empty = Playlist()
+        plist_empty.processPlaylist()
+        trackCount = plist_empty.tracks.count
         expected = 0
         XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
     }

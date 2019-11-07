@@ -67,7 +67,7 @@ class Playlist {
     func processPlaylist () {
         
         guard var fileText = self._fileText else {
-            let errorMsg  = "⚠️  `fileText` was empty for: \(String(describing: self.fileName))"
+            let errorMsg  = "⚠️  `fileText` was empty for: \(self.fileName ?? "")"
             print (errorMsg)
             ConsoleIO.writeMessage(errorMsg, to: .error)
             return
@@ -94,9 +94,9 @@ class Playlist {
             }
         }
         
-        print ("✅   Found \(tracks.count) tracks in \(String(describing:self.fileName))")
+        print ("✅   Found \(tracks.count) tracks in \(self.fileName ?? "")")
         if (_unsupportedTracks.count > 0) {
-            print ("⚠️   Found \(unsupportedTracks.count) unsupported tracks in \(String(describing:self.fileName))")
+            print ("⚠️   Found \(unsupportedTracks.count) unsupported tracks in \(self.fileName ?? "")")
         }
     }
     
