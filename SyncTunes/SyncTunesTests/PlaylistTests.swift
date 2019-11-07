@@ -66,16 +66,22 @@ class PlaylistTests: XCTestCase {
         var trackCount = plist_1.tracks.count
         var expected = 7
         XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+        trackCount = plist_1.unsupportedTracks.count
+        expected = 0
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) unsupported tracks, expected \(expected)")
         
-        // Playlist file 2
+        // Playlist file 2 - contains a mix of supported and unsupported tracks
         let url_2 = getPlaylistURL(filename: "x.m3u")
         let plist_2 = Playlist()
         plist_2.loadFile(url_2)
         plist_2.processPlaylist()
         
         trackCount = plist_2.tracks.count
-        expected = 510
+        expected = 470
         XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+        trackCount = plist_2.unsupportedTracks.count
+        expected = 40
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) unsupported tracks, expected \(expected)")
         
         // Playlist file 3
         let url_3 = getPlaylistURL(filename: "Zamboni.m3u")
@@ -86,6 +92,9 @@ class PlaylistTests: XCTestCase {
         trackCount = plist_3.tracks.count
         expected = 90
         XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+        trackCount = plist_3.unsupportedTracks.count
+        expected = 0
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) unsupported tracks, expected \(expected)")
         
         // Playlist file missing
         let url_missing = getPlaylistURL(filename: "missing.m3u")
