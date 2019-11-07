@@ -11,6 +11,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Where are we?
       run: pwd
+    - name: What's here?
       run: ls -la
     - name: Build and Test
       working-directory: ${{ github.workspace }}
