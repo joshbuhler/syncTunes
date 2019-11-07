@@ -9,7 +9,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Package update
-      run: swift package update
     - name: Build and Test
       run: xcodebuild -workspace syncTunes.xcworkspace/ -scheme SyncTunes -destination 'platform=macOS' clean build test
