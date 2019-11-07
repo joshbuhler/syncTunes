@@ -637,7 +637,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:LinusU/RevHash.swift.git";
+			repositoryURL = "https://github.com/LinusU/RevHash.swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
@@ -645,7 +645,7 @@
 		};
 		5CEF593F23749C280067BA31 /* XCRemoteSwiftPackageReference "DifferenceKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:ra1028/DifferenceKit.git";
+			repositoryURL = "https://github.com/ra1028/DifferenceKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.1.3;
