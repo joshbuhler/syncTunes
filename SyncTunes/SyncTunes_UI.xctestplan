@@ -12,7 +12,13 @@
 
   },
   "testTargets" : [
-
+    {
+      "target" : {
+        "containerPath" : "container:SyncTunes.xcodeproj",
+        "identifier" : "5CEF592923749ABE0067BA31",
+        "name" : "SyncTunesUITests"
+      }
+    }
   ],
   "version" : 1
 }
