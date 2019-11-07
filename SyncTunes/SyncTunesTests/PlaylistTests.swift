@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import SyncTunes
 
 class PlaylistTests: XCTestCase {
 
@@ -17,10 +18,32 @@ class PlaylistTests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    func getPlaylistURL (filename:String) -> URL {
+        
+        let bundleURL = Bundle(for: type(of: self)).bundleURL
+        let plistDir = bundleURL.appendingPathComponent("playlists", isDirectory: true)
+        
+        let plistURL = plistDir.appendingPathComponent(filename)
+        return plistURL
+    }
+    
+    func test_playlistInit () {
+        let plist = Playlist()
+        
+        XCTAssertNil(plist.fileURL, "Playlist file was not nil")
+        XCTAssertNil(plist.fileName, "Playlist filename was not nil")
+        XCTAssertNil(plist.fileText, "Playlist fileText was not nil")
+    }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_openFile () {
+        let url_1 = getPlaylistURL(filename: "x.m3u")
+        let plist_1 = Playlist()
+        plist_1.loadFile(url_1)
+        
+        XCTAssertNotNil(plist_1.fileURL)
+        XCTAssertNotNil(plist_1.fileName)
+        XCTAssertNotNil(plist_1.fileText)
     }
 
     func testPerformanceExample() {

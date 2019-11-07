@@ -15,6 +15,11 @@
 		5CEF592F23749ABE0067BA31 /* SyncTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */; };
 		5CEF593E23749B8C0067BA31 /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEF593D23749B8C0067BA31 /* RevHash */; };
 		5CEF594123749C280067BA31 /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEF594023749C280067BA31 /* DifferenceKit */; };
+		5CEF59462374A0D40067BA31 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59452374A0D40067BA31 /* Playlist.swift */; };
+		5CEF59482374A13B0067BA31 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59472374A13B0067BA31 /* Track.swift */; };
+		5CEF594A2374A15F0067BA31 /* PlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59492374A15F0067BA31 /* PlaylistTests.swift */; };
+		5CEF594D2374A1B70067BA31 /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF594C2374A1B60067BA31 /* ConsoleIO.swift */; };
+		5CEF594F2374A8820067BA31 /* TestFiles in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF594E2374A8820067BA31 /* TestFiles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +53,13 @@
 		5CEF592A23749ABE0067BA31 /* SyncTunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncTunesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTunesUITests.swift; sourceTree = "<group>"; };
 		5CEF593023749ABE0067BA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CEF594223749D710067BA31 /* SyncTunes_Unit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SyncTunes_Unit.xctestplan; sourceTree = SOURCE_ROOT; };
+		5CEF594323749E070067BA31 /* SyncTunes_UI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = SyncTunes_UI.xctestplan; sourceTree = SOURCE_ROOT; };
+		5CEF59452374A0D40067BA31 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
+		5CEF59472374A13B0067BA31 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		5CEF59492374A15F0067BA31 /* PlaylistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTests.swift; sourceTree = "<group>"; };
+		5CEF594C2374A1B60067BA31 /* ConsoleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
+		5CEF594E2374A8820067BA31 /* TestFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestFiles; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 				5CEF590F23749ABD0067BA31 /* SyncTunes */,
 				5CEF592223749ABE0067BA31 /* SyncTunesTests */,
 				5CEF592D23749ABE0067BA31 /* SyncTunesUITests */,
+				5CEF594E2374A8820067BA31 /* TestFiles */,
 				5CEF590E23749ABD0067BA31 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,6 +115,10 @@
 			children = (
 				5CEF591023749ABD0067BA31 /* AppDelegate.swift */,
 				5CEF591223749ABD0067BA31 /* ViewController.swift */,
+				5CEF59442374A0D40067BA31 /* models */,
+				5CEF594B2374A1B60067BA31 /* utils */,
+				5CEF594223749D710067BA31 /* SyncTunes_Unit.xctestplan */,
+				5CEF594323749E070067BA31 /* SyncTunes_UI.xctestplan */,
 				5CEF591423749ABE0067BA31 /* Assets.xcassets */,
 				5CEF591623749ABE0067BA31 /* Main.storyboard */,
 				5CEF591923749ABE0067BA31 /* Info.plist */,
@@ -114,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */,
+				5CEF59492374A15F0067BA31 /* PlaylistTests.swift */,
 				5CEF592523749ABE0067BA31 /* Info.plist */,
 			);
 			path = SyncTunesTests;
@@ -126,6 +144,23 @@
 				5CEF593023749ABE0067BA31 /* Info.plist */,
 			);
 			path = SyncTunesUITests;
+			sourceTree = "<group>";
+		};
+		5CEF59442374A0D40067BA31 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				5CEF59452374A0D40067BA31 /* Playlist.swift */,
+				5CEF59472374A13B0067BA31 /* Track.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		5CEF594B2374A1B60067BA31 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				5CEF594C2374A1B60067BA31 /* ConsoleIO.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEF594F2374A8820067BA31 /* TestFiles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,8 +302,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEF594D2374A1B70067BA31 /* ConsoleIO.swift in Sources */,
 				5CEF591323749ABD0067BA31 /* ViewController.swift in Sources */,
 				5CEF591123749ABD0067BA31 /* AppDelegate.swift in Sources */,
+				5CEF59462374A0D40067BA31 /* Playlist.swift in Sources */,
+				5CEF59482374A13B0067BA31 /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */,
+				5CEF594A2374A15F0067BA31 /* PlaylistTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
