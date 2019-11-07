@@ -22,7 +22,7 @@ class PlaylistTests: XCTestCase {
     func getPlaylistURL (filename:String) -> URL {
         
         let bundleURL = Bundle(for: type(of: self)).bundleURL
-        let plistDir = bundleURL.appendingPathComponent("playlists", isDirectory: true)
+        let plistDir = bundleURL.appendingPathComponent("Contents/Resources/TestFiles/playlists", isDirectory: true)
         
         let plistURL = plistDir.appendingPathComponent(filename)
         return plistURL
