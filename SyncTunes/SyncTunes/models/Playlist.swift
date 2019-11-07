@@ -45,7 +45,11 @@ class Playlist {
         do {
             _fileText = try String.init(contentsOf: file, encoding: .utf8)
         } catch let error {
-            print ("🛑  ERROR loading contents of file: \(file) - Error: \(error)")
+            
+            let errorMsg  = "🛑  ERROR loading contents of file: \(file) - Error: \(error)"
+            print (errorMsg)
+            
+            ConsoleIO.writeMessage(error.localizedDescription, to: .error)
         }
     }
     
