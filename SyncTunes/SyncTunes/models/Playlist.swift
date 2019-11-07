@@ -52,22 +52,7 @@ class Playlist {
             ConsoleIO.writeMessage(error.localizedDescription, to: .error)
         }
     }
-    
-    func openFile (_ playlistFile:String) -> String? {
-//        do {
-//            let textURL = URL.init(fileURLWithPath: playlistFile)
-//
-//            self.fileName = textURL.lastPathComponent
-//
-//            let textString = try String.init(contentsOf: textURL, encoding: .utf8)
-//            return textString
-//        } catch let error {
-//            ConsoleIO.writeMessage(error.localizedDescription, to: .error)
-//            return nil
-//        }
-        return nil
-    }
-    
+        
 //    func processPlaylist () {
 //        ConsoleIO.writeMessage("Scanning playlist file: \(self.file)")
 //
