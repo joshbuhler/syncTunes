@@ -25,6 +25,7 @@ class Track {
     func parseTrackTxt (txt:String) {
         self.supportedType = checkFileType(txt: txt)
         
+        // Use CharacterSet.newlines instead of \r
         let fileComponents:[String] = txt.components(separatedBy: "\r")
         if (fileComponents.count >= 2) {
             let fText = fileComponents[1]
