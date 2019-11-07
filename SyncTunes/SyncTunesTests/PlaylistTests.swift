@@ -41,9 +41,18 @@ class PlaylistTests: XCTestCase {
         let plist_1 = Playlist()
         plist_1.loadFile(url_1)
         
-        XCTAssertNotNil(plist_1.fileURL)
-        XCTAssertNotNil(plist_1.fileName)
-        XCTAssertNotNil(plist_1.fileText)
+        XCTAssertNotNil(plist_1.fileURL, "Playlist file was nil")
+        XCTAssertNotNil(plist_1.fileName, "Playlist filename was nil")
+        XCTAssertNotNil(plist_1.fileText, "Playlist fileText was nil")
+        
+        // What if the file dosen't exist?
+        let url_missing = getPlaylistURL(filename: "missing.m3u")
+        let plist_missing = Playlist()
+        plist_missing.loadFile(url_missing)
+        
+        XCTAssertNotNil(plist_missing.fileURL, "Playlist file was nil")
+        XCTAssertNotNil(plist_missing.fileName, "Playlist filename was nil")
+        XCTAssertNil(plist_missing.fileText, "Playlist fileText was not nil")
     }
 
     func testPerformanceExample() {
