@@ -9,5 +9,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    - name: Where are we?
+      run: pwd
     - name: Build and Test
+      working-directory: ${{ github.workspace }}
       run: xcodebuild -workspace syncTunes.xcworkspace/ -scheme SyncTunes -destination 'platform=macOS' clean build test
