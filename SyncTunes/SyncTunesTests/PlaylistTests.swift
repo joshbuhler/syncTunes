@@ -54,6 +54,40 @@ class PlaylistTests: XCTestCase {
         XCTAssertNotNil(plist_missing.fileName, "Playlist filename was nil")
         XCTAssertNil(plist_missing.fileText, "Playlist fileText was not nil")
     }
+    
+    func test_processPlaylist () {
+        let url_1 = getPlaylistURL(filename: "TestPlaylist.m3u")
+        let plist_1 = Playlist()
+        plist_1.loadFile(url_1)
+        
+        var trackCount = plist_1.tracks.count
+        var expected = 7
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+        
+        let url_2 = getPlaylistURL(filename: "x.m3u")
+        let plist_2 = Playlist()
+        plist_2.loadFile(url_2)
+        
+        trackCount = plist_2.tracks.count
+        expected = 510
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+        
+        let url_3 = getPlaylistURL(filename: "Zamboni.m3u")
+        let plist_3 = Playlist()
+        plist_3.loadFile(url_3)
+        
+        trackCount = plist_3.tracks.count
+        expected = 90
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+        
+        let url_missing = getPlaylistURL(filename: "missing.m3u")
+        let plist_missing = Playlist()
+        plist_missing.loadFile(url_missing)
+        
+        trackCount = plist_missing.tracks.count
+        expected = 0
+        XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
+    }
 
     func testPerformanceExample() {
         // This is an example of a performance test case.

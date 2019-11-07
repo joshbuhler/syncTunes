@@ -33,7 +33,12 @@ class Playlist {
         }
     }
     
-    var tracks:[Track] = [Track]()
+    var _tracklist:[Track] = [Track]()
+    var tracks:[Track] {
+        get {
+            return _tracklist
+        }
+    }
 
     // Most of the guts of SyncTunes will be moved here. This will handle the parsing of a playlist file, track creation, and a toString() method for writing the playlist file. syncTunes can handle the actual file writing.
     // SyncTunes will also be responsible for scanning a directory, and feeding the files to Playlist
@@ -48,36 +53,32 @@ class Playlist {
             
             let errorMsg  = "🛑  ERROR loading contents of file: \(file) - Error: \(error)"
             print (errorMsg)
-            
-            ConsoleIO.writeMessage(error.localizedDescription, to: .error)
+            ConsoleIO.writeMessage(errorMsg, to: .error)
         }
     }
-        
-//    func processPlaylist () {
-//        ConsoleIO.writeMessage("Scanning playlist file: \(self.file)")
-//
-//        guard let playlistText = self.openFile(self.file) else {
-//            print ("ERROR: playlistText is empty")
-//            return
-//        }
-//
-//        splitIntoTracks(pText: playlistText)
-//    }
     
-    func splitIntoTracks (pText:String) {
-        let trackStrings = pText.components(separatedBy: "#EXTINF:")
+    func processPlaylist () {
+        
+        guard let fileText = self._fileText else {
+            let errorMsg  = "⚠️  `fileText` was empty for: \(String(describing: self.fileName))"
+            print (errorMsg)
+            ConsoleIO.writeMessage(errorMsg, to: .error)
+            return
+        }
+        
+        let trackStrings = fileText.components(separatedBy: "#EXTINF:")
         
         for t in trackStrings {
-            
             let newTrack = Track(trackTxt: t)
             if (newTrack.supportedType) {
-                tracks.append(newTrack)
+                _tracklist.append(newTrack)
             }
         }
         
-        print ("Found \(tracks.count) tracks")
+        print ("Found \(tracks.count) tracks in \(String(describing:self.fileName))")
     }
     
+    // Writes the tracks back into a playlist
     func getPlaylistString () -> String {
         var outputString = "#EXTM3U\n"
         
