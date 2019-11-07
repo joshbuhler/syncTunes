@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,7 @@
 		5CEF591823749ABE0067BA31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF591623749ABE0067BA31 /* Main.storyboard */; };
 		5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */; };
 		5CEF592F23749ABE0067BA31 /* SyncTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */; };
+		5CEF593E23749B8C0067BA31 /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEF593D23749B8C0067BA31 /* RevHash */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEF593E23749B8C0067BA31 /* RevHash in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +142,9 @@
 			dependencies = (
 			);
 			name = SyncTunes;
+			packageProductDependencies = (
+				5CEF593D23749B8C0067BA31 /* RevHash */,
+			);
 			productName = SyncTunes;
 			productReference = 5CEF590D23749ABD0067BA31 /* SyncTunes.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +217,9 @@
 				Base,
 			);
 			mainGroup = 5CEF590423749ABD0067BA31;
+			packageReferences = (
+				5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */,
+			);
 			productRefGroup = 5CEF590E23749ABD0067BA31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -581,6 +589,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:LinusU/RevHash.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5CEF593D23749B8C0067BA31 /* RevHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */;
+			productName = RevHash;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5CEF590523749ABD0067BA31 /* Project object */;
 }

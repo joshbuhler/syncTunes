@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RevHash
 
 class ViewController: NSViewController {
 
@@ -14,6 +15,9 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let hash = revHash(of: "blah")
+        print ("hash: \(hash)")
     }
 
     override var representedObject: Any? {

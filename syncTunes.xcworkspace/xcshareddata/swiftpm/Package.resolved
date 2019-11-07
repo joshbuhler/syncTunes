@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "RevHash",
+        "repositoryURL": "git@github.com:LinusU/RevHash.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "f4fd8c156768dfb57d3f37dd8bd45c65fa806f66",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
