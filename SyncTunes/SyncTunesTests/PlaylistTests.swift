@@ -124,10 +124,15 @@ class PlaylistTests: XCTestCase {
         XCTAssertEqual(trackCount, expected, "Found \(trackCount) tracks, expected \(expected)")
     }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
+    func test_performance_processPlaylist () {
+        let url_2 = getPlaylistURL(filename: "x.m3u")
+        
+        let plist_2 = Playlist()
+        plist_2.loadFile(url_2)
+        
         self.measure {
             // Put the code you want to measure the time of here.
+            plist_2.processPlaylist()
         }
     }
 
