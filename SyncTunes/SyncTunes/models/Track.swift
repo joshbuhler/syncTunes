@@ -8,23 +8,24 @@
 import Cocoa
 
 class Track {
+    
+    private var _trackText:String = ""
+    
     var trackLength:String?
     var trackName:String?
     var sourceURL:URL! // where the file came from
     var destURL:URL! // where it's being copied to
     var playlistPath:String! // url written to playlist - originally came from syncTunes.swift
     
-    var supportedType:Bool = false
-    
-    init(trackTxt:String?) {
-        if let t = trackTxt {
-            parseTrackTxt(txt: t)
-        }
+    var isSupportedType:Bool {
+        return self.checkFileType(txt: self._trackText)
     }
     
-    func parseTrackTxt (txt:String) {
-        self.supportedType = checkFileType(txt: txt)
-        
+    init(trackTxt:String) {
+        self._trackText = trackTxt
+    }
+    
+    func parseTrackTxt (txt:String) {        
         // Use CharacterSet.newlines instead of \r
         let fileComponents:[String] = txt.components(separatedBy: "\r")
         if (fileComponents.count >= 2) {
@@ -52,7 +53,7 @@ class Track {
         }
     }
     
-    func checkFileType (txt:String) -> Bool {
+    private func checkFileType (txt:String) -> Bool {
         let pattern = "(.mp3|.m4a|.wma|.wav|.m4b|.aac|.flac)"
         
         let fullRange = NSMakeRange(0, txt.count)

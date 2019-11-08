@@ -24,10 +24,9 @@ class TrackTests: XCTestCase {
     let t6_text = "#EXTINF:38,Matterhorn climbers announcements - Unknown\r/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/Unknown/Untitled - 11-15-05 (3)/06 Matterhorn climbers announcements.aac"
 
     let t7_text = "#EXTINF:37,Journey to Austria - John Williams\r/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.flac"
-
-    let t8_text = "#EXTINF:37,Journey to Austria - John Williams\r/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.MP3"
     
-    let t9_text = "#EXTINF:37,Journey to Austria - John Williams\r/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.aad"
+    // unsupported type
+    let t8_text = "#EXTINF:37,Journey to Austria - John Williams\r/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.xyz"
     
     override func setUp() {
         super.setUp()
@@ -39,21 +38,33 @@ class TrackTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_checkFileType () {
-        let testTrack = Track(trackTxt: t1_text)
+    func test_supportedType () {
         
         // supported file types
-        XCTAssertTrue(testTrack.checkFileType(txt: t1_text))
-        XCTAssertTrue(testTrack.checkFileType(txt: t2_text))
-        XCTAssertTrue(testTrack.checkFileType(txt: t3_text))
-        XCTAssertTrue(testTrack.checkFileType(txt: t4_text))
-        XCTAssertTrue(testTrack.checkFileType(txt: t5_text))
-        XCTAssertTrue(testTrack.checkFileType(txt: t6_text))
-        XCTAssertTrue(testTrack.checkFileType(txt: t7_text))
-        XCTAssertTrue(testTrack.checkFileType(txt: t8_text))
+        let t1 = Track(trackTxt: t1_text)
+        XCTAssertTrue(t1.isSupportedType, "mp3 should be a supported type")
+        
+        let t2 = Track(trackTxt: t2_text)
+        XCTAssertTrue(t2.isSupportedType, "m4a should be a supported type")
+        
+        let t3 = Track(trackTxt: t1_text)
+        XCTAssertTrue(t3.isSupportedType, "wma should be a supported type")
+        
+        let t4 = Track(trackTxt: t1_text)
+        XCTAssertTrue(t4.isSupportedType, "wav should be a supported type")
+        
+        let t5 = Track(trackTxt: t1_text)
+        XCTAssertTrue(t5.isSupportedType, "m4b should be a supported type")
+        
+        let t6 = Track(trackTxt: t1_text)
+        XCTAssertTrue(t6.isSupportedType, "aac should be a supported type")
+        
+        let t7 = Track(trackTxt: t1_text)
+        XCTAssertTrue(t7.isSupportedType, "flac should be a supported type")
         
         // unsupported file types
-        XCTAssertFalse(testTrack.checkFileType(txt: t9_text))
+        let t8 = Track(trackTxt: t8_text)
+        XCTAssertFalse(t8.isSupportedType, "XYZ should NOT be a supported type")
         
     }
 

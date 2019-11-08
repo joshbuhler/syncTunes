@@ -92,7 +92,7 @@ class Playlist {
             }
             
             let newTrack = Track(trackTxt: t)
-            if (newTrack.supportedType) {
+            if (newTrack.isSupportedType) {
                 _tracklist.append(newTrack)
             } else {
                 _unsupportedTracks.append(newTrack)
