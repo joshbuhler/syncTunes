@@ -1,6 +1,6 @@
 # syncTunes
 
-syncTunes is a quick macOS project I put together to easily copy files from my iTunes library onto a USB thumb drive for use with a Ford SYNC 3 system.
+syncTunes is a quick macOS project I put together to easily copy files from my iTunes library onto a USB thumb drive for use with a Ford SYNC 3 system. However, as this really is just tweaking the contents of an M3U playlist file, and not writing anything Ford-specific, this would likely work with other devices that can read M3U playlists. At the end of the day, it's just copying files to a new location, and adjusting the playlist files to match. 
 
 While I use it with iTunes, iTunes is *not* required. You'll really just need something that can generate .m3u playlist files that the tool can then parse. You will need a Mac though, and the developer tools to build it.
 
@@ -11,7 +11,7 @@ When used, the following steps will happen:
 1. syncTunes will scan the supplied directory for .m3u playlist files and build a list of the tracks included.
 2. Each track's file extension will be checked, and if it's a supported type, will be copied to a new playlist.
 3. Supported track files will be copied from the location listed in the playlist file to the output directory.
-4. N playlist files will be written to the output directory, these new playlists will:
+4. New playlist files will be written to the output directory, these new playlists will:
 	* Preserve the order of the original playlist
 	* Omit any unsupported files
 	* Have new file paths that point to the copied files. These paths will be relative to the output directory
@@ -75,7 +75,12 @@ SYNC 3 is capable of indexing up to 50,000 songs per USB device, for up to 10 de
 
 The links below were used to help me figure out how to do this and get it working with my truck's SYNC system.
 
-* [How to play your digital media player with SYNC 3](https://owner.ford.com/how-tos/sync-technology/sync-3/entertainment/how-to-play-your-digital-media-player-with-sync-3.html)
-* [Ford SYNC 3 Supplement](http://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/Ford-SYNC-3-Supplement-version-1_sycsy_EN-US_05_2015.pdf)
-* [FordFlex.net - Sync and Playlists](https://www.fordflex.net/forums/viewtopic.php?t=7154)
-* [M3U Play List Specification](https://schworak.com/blog/e39/m3u-play-list-specification/)
+* [Ford: How to play your digital media player with SYNC 3](https://owner.ford.com/how-tos/sync-technology/sync-3/entertainment/how-to-play-your-digital-media-player-with-sync-3.html)
+* [Ford: Ford SYNC 3 Supplement](http://www.fordservicecontent.com/Ford_Content/Catalog/owner_information/Ford-SYNC-3-Supplement-version-1_sycsy_EN-US_05_2015.pdf)
+* [FordFlex.net: Sync and Playlists](https://www.fordflex.net/forums/viewtopic.php?t=7154)
+* [Wikipedia: Ford SYNC](https://en.wikipedia.org/wiki/Ford_Sync)
+
+### M3U File Info
+
+* [Wikipedia: M3U](https://en.wikipedia.org/wiki/M3U)
+* [schworak.com: M3U Play List Specification](https://schworak.com/blog/e39/m3u-play-list-specification/)
