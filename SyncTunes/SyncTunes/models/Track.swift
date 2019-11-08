@@ -12,7 +12,7 @@ class Track {
     var trackName:String?
     var sourceURL:URL! // where the file came from
     var destURL:URL! // where it's being copied to
-    var playlistPath:String! // url written to playlist
+    var playlistPath:String! // url written to playlist - originally came from syncTunes.swift
     
     var supportedType:Bool = false
     
@@ -74,7 +74,9 @@ class Track {
         
         returnString += "\r"
         
-        returnString += self.playlistPath
+        if let path = self.playlistPath {
+            returnString += path
+        }
         
         return returnString
     }    
