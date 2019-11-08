@@ -102,11 +102,11 @@ class Playlist {
     
     // Writes the tracks back into a playlist
     func getPlaylistString () -> String {
-        var outputString = "#EXTM3U\n"
+        var outputString = "#EXTM3U\r"
         
         for t in tracks {
             outputString += t.toString()
-            outputString += "\n"
+            outputString += "\r"
         }
         
         return outputString

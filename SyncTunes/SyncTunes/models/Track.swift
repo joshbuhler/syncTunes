@@ -72,7 +72,7 @@ class Track {
     func toString () -> String {
         var returnString = "#EXTINF:\(self.trackLength ?? "0"),\(self.trackName ?? "Unknown Track")"
         
-        returnString += "\n"
+        returnString += "\r"
         
         returnString += self.playlistPath
         
