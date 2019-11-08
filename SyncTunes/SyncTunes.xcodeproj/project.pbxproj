@@ -20,6 +20,7 @@
 		5CEF594A2374A15F0067BA31 /* PlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59492374A15F0067BA31 /* PlaylistTests.swift */; };
 		5CEF594D2374A1B70067BA31 /* ConsoleIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF594C2374A1B60067BA31 /* ConsoleIO.swift */; };
 		5CEF594F2374A8820067BA31 /* TestFiles in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF594E2374A8820067BA31 /* TestFiles */; };
+		5CEF5951237609CF0067BA31 /* TrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF5950237609CF0067BA31 /* TrackTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		5CEF59492374A15F0067BA31 /* PlaylistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTests.swift; sourceTree = "<group>"; };
 		5CEF594C2374A1B60067BA31 /* ConsoleIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleIO.swift; sourceTree = "<group>"; };
 		5CEF594E2374A8820067BA31 /* TestFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TestFiles; sourceTree = "<group>"; };
+		5CEF5950237609CF0067BA31 /* TrackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */,
 				5CEF59492374A15F0067BA31 /* PlaylistTests.swift */,
+				5CEF5950237609CF0067BA31 /* TrackTests.swift */,
 				5CEF592523749ABE0067BA31 /* Info.plist */,
 			);
 			path = SyncTunesTests;
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CEF5951237609CF0067BA31 /* TrackTests.swift in Sources */,
 				5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */,
 				5CEF594A2374A15F0067BA31 /* PlaylistTests.swift in Sources */,
 			);
