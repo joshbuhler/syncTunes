@@ -135,5 +135,69 @@ class PlaylistTests: XCTestCase {
             plist_2.processPlaylist()
         }
     }
+    
+    // This test will fail until Track parsing is fixed.
+    func test_getPlaylistString () {
+        let url_1 = getPlaylistURL(filename: "TestPlaylist.m3u")
+        let plist_1 = Playlist()
+        plist_1.loadFile(url_1)
+        plist_1.processPlaylist()
+        
+        var inputTrackCount = plist_1.tracks.count
+        var expectedSupported = 7
+        var expectedUnsupported = 0
+        XCTAssertEqual(inputTrackCount, expectedSupported, "Found \(inputTrackCount) tracks, expected \(expectedSupported)")
+        inputTrackCount = plist_1.unsupportedTracks.count
+        XCTAssertEqual(inputTrackCount, expectedUnsupported, "Found \(inputTrackCount) unsupported tracks, expected \(expectedUnsupported)")
+        
+        /**
+            Only going to compare track counts here, as Track will do some work on the URLs, meaning that the output isn't going to match the input 100%. At minimum though, the number of tracks in the output should match the input, minus any unsupported tracks.\
+         */
+        
+        var outputFileText = plist_1.getPlaylistString()
+        XCTAssertTrue(outputFileText.isEmpty == false, "Output playlist text was empty")
+        
+        var outputPlaylist = Playlist(playlistText: outputFileText)
+        outputPlaylist.processPlaylist()
+        
+        var outputTrackCount = outputPlaylist.tracks.count
+        XCTAssertEqual(outputTrackCount, expectedSupported, "Found \(outputTrackCount) tracks, expected \(expectedSupported)")
+        outputTrackCount = plist_1.unsupportedTracks.count
+        XCTAssertEqual(outputTrackCount, expectedUnsupported, "Found \(outputTrackCount) unsupported tracks, expected \(expectedUnsupported)")
+        
+        XCTAssertEqual(inputTrackCount, outputTrackCount, "Input & Output track counts do not match")
+        
+        
+        //--------------
+        
+        // Playlist file 2 - contains a mix of supported and unsupported tracks
+        let url_2 = getPlaylistURL(filename: "x.m3u")
+        let plist_2 = Playlist()
+        plist_2.loadFile(url_2)
+        plist_2.processPlaylist()
+        
+        inputTrackCount = plist_2.tracks.count
+        expectedSupported = 470
+        XCTAssertEqual(inputTrackCount, expectedSupported, "Found \(inputTrackCount) tracks, expected \(expectedSupported)")
+        inputTrackCount = plist_2.unsupportedTracks.count
+        expectedUnsupported = 40
+        XCTAssertEqual(inputTrackCount, expectedUnsupported, "Found \(inputTrackCount) unsupported tracks, expected \(expectedUnsupported)")
+        
+        outputFileText = plist_2.getPlaylistString()
+        XCTAssertTrue(outputFileText.isEmpty == false, "Output playlist text was empty")
+        
+        outputPlaylist = Playlist(playlistText: outputFileText)
+        outputPlaylist.processPlaylist()
+        
+        outputTrackCount = outputPlaylist.tracks.count
+        
+        // unsupported will not match, as we don't include those in this output method
+        expectedUnsupported = 0
+        XCTAssertEqual(outputTrackCount, expectedSupported, "Found \(outputTrackCount) tracks, expected \(expectedSupported)")
+        outputTrackCount = plist_2.unsupportedTracks.count
+        XCTAssertEqual(outputTrackCount, expectedUnsupported, "Found \(outputTrackCount) unsupported tracks, expected \(expectedUnsupported)")
+        
+        XCTAssertEqual(inputTrackCount, outputTrackCount, "Input & Output track counts do not match")
+    }
 
 }
