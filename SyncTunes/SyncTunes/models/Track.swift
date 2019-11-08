@@ -7,6 +7,16 @@
 
 import Cocoa
 
+enum SupportedFileType:String, CaseIterable {
+    case mp3 = "mp3"
+    case m4a = "m4a"
+    case wma = "wma"
+    case wav = "wav"
+    case m4b = "m4b"
+    case aac = "aac"
+    case flac = "flac"
+}
+
 class Track {
     
     private var _trackText:String = ""
@@ -54,7 +64,8 @@ class Track {
     }
     
     private func checkFileType (txt:String) -> Bool {
-        let pattern = "(.mp3|.m4a|.wma|.wav|.m4b|.aac|.flac)"
+        let patternString = SupportedFileType.allCases.map({"\($0.rawValue)"}).joined(separator: "|")
+        let pattern = "(\(patternString))"
         
         let fullRange = NSMakeRange(0, txt.count)
         
