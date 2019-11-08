@@ -1,10 +1,43 @@
 {
   "configurations" : [
     {
-      "id" : "2482F7E9-153A-441B-886E-E731960C0E70",
-      "name" : "Configuration 1",
+      "id" : "71E125FC-8B57-4AC9-AFE9-4F2AAB8472FB",
+      "name" : "Default",
       "options" : {
-
+        "addressSanitizer" : {
+          "enabled" : false
+        },
+        "threadSanitizerEnabled" : false
+      }
+    },
+    {
+      "enabled" : false,
+      "id" : "2482F7E9-153A-441B-886E-E731960C0E70",
+      "name" : "Address Sanitizer",
+      "options" : {
+        "addressSanitizer" : {
+          "enabled" : true
+        },
+        "threadSanitizerEnabled" : false
+      }
+    },
+    {
+      "enabled" : false,
+      "id" : "59EE0D00-40BC-4C6A-AC92-654AE3EBCB21",
+      "name" : "Concurrency",
+      "options" : {
+        "threadSanitizerEnabled" : true,
+        "undefinedBehaviorSanitizerEnabled" : true
+      }
+    },
+    {
+      "enabled" : false,
+      "id" : "023505E1-5878-45F8-9023-5D68F2C24286",
+      "name" : "🧟‍♂️ Zombies",
+      "options" : {
+        "nsZombieEnabled" : true,
+        "threadSanitizerEnabled" : true,
+        "undefinedBehaviorSanitizerEnabled" : true
       }
     }
   ],
@@ -22,7 +55,8 @@
       "containerPath" : "container:SyncTunes.xcodeproj",
       "identifier" : "5CEF590C23749ABD0067BA31",
       "name" : "SyncTunes"
-    }
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {

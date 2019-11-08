@@ -54,7 +54,7 @@
 		5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTunesUITests.swift; sourceTree = "<group>"; };
 		5CEF593023749ABE0067BA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CEF594223749D710067BA31 /* SyncTunes_Unit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SyncTunes_Unit.xctestplan; sourceTree = SOURCE_ROOT; };
-		5CEF594323749E070067BA31 /* SyncTunes_UI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = SyncTunes_UI.xctestplan; sourceTree = SOURCE_ROOT; };
+		5CEF594323749E070067BA31 /* SyncTunes_UI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = SyncTunes_UI.xctestplan; sourceTree = SOURCE_ROOT; };
 		5CEF59452374A0D40067BA31 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Playlist.swift; sourceTree = "<group>"; };
 		5CEF59472374A13B0067BA31 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		5CEF59492374A15F0067BA31 /* PlaylistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistTests.swift; sourceTree = "<group>"; };
@@ -474,7 +474,7 @@
 				CODE_SIGN_ENTITLEMENTS = SyncTunes/SyncTunes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5QZXV9E6SU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SyncTunes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -495,7 +495,7 @@
 				CODE_SIGN_ENTITLEMENTS = SyncTunes/SyncTunes.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 5QZXV9E6SU;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SyncTunes/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
