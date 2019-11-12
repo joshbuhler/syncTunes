@@ -37,6 +37,16 @@ class TrackTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+    
+    func test_trackInit () {
+        let t1 = Track(trackTxt: t1_text)
+        
+        XCTAssertEqual(t1.trackName, "Journey to Austria - John Williams")
+        XCTAssertEqual(t1.trackLength, 37)
+        XCTAssertTrue(t1.isSupportedType, "mp3 should be a supported type")
+        XCTAssertEqual(t1.sourceURL, URL(fileURLWithPath: "/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.mp3"))
+        
+    }
 
     func test_supportedType () {
         

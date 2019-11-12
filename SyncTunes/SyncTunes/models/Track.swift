@@ -21,45 +21,85 @@ class Track {
     
     private var _trackText:String = ""
     
-    var trackLength:String?
-    var trackName:String?
-    var sourceURL:URL! // where the file came from
-    var destURL:URL! // where it's being copied to
-    var playlistPath:String! // url written to playlist - originally came from syncTunes.swift
+    // Where the track's file is coming from
+    private var _sourceURL:URL?
+    var sourceURL:URL? {
+        get {
+            return _sourceURL
+        }
+    }
+    
+    // Where the track's file is being copied to
+    private var _targetURL:URL?
+    var targetURL:URL? {
+        get {
+            return _targetURL
+        }
+    }
     
     var isSupportedType:Bool {
         return self.checkFileType(txt: self._trackText)
     }
     
+    private var _trackLength:Int = 0
+    var trackLength:Int {
+        get {
+            return _trackLength
+        }
+    }
+    
+    private var _trackName:String = "MISSING_TRACK_NAME"
+    var trackName:String {
+        get {
+            return _trackName
+        }
+    }
+    
+    // url written to playlist - originally came from syncTunes.swift
+    private var _playlistPath:String?
+    var playlistPath:String? {
+        get {
+            return _playlistPath
+        }
+    }
+    
+    
     init(trackTxt:String) {
         self._trackText = trackTxt
+        
+        self.parseTrackText()
     }
     
-    func parseTrackTxt (txt:String) {        
-        // Use CharacterSet.newlines instead of \r
-        let fileComponents:[String] = txt.components(separatedBy: "\r")
-        if (fileComponents.count >= 2) {
-            let fText = fileComponents[1]
-                print ("fText: \(fText)")
-                self.sourceURL = URL(fileURLWithPath: fText)
+    private func parseTrackText () {
+        
+        var trackString = _trackText
+        if let headerRange = trackString.range(of: "#EXTINF:") {
+            trackString.removeSubrange(headerRange)
         }
-        findTrackMetadata(txt: txt)
-    }
-    
-    func findTrackMetadata (txt:String) {
         
-        let metaText:String? = txt.components(separatedBy: "\r")[0]
-        
+        let trackComponents:[String] = trackString.components(separatedBy: .newlines)
+                
+        // track metadata
+        let metaText:String? = trackComponents[0]
         if let mText = metaText {
             var comps = mText.components(separatedBy: ",")
             
+            if let length = Int(comps[0]) {
+                _trackLength = length
+            }
+            
             if (comps.count >= 2) {
-                self.trackLength = comps[0]
-                
                 // just in case the track has "," in it, join the rest back together
                 comps.removeFirst()
-                self.trackName = comps.joined(separator: ",")
+                _trackName = comps.joined(separator: ",")
             }
+        }
+        
+        // File path
+        if (trackComponents.count >= 2) {
+            let fileText = trackComponents[1]
+            //print ("fileText: \(fileText)")
+            _sourceURL = URL(fileURLWithPath: fileText)
         }
     }
     
@@ -82,7 +122,7 @@ class Track {
     }
     
     func toString () -> String {
-        var returnString = "#EXTINF:\(self.trackLength ?? "0"),\(self.trackName ?? "Unknown Track")"
+        var returnString = "#EXTINF:\(self.trackLength),\(self.trackName)"
         
         returnString += "\r"
         
