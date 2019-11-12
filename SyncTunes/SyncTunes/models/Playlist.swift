@@ -110,7 +110,7 @@ class Playlist {
         var outputString = "#EXTM3U\r"
         
         for t in tracks {
-            outputString += t.toString()
+            outputString += t.trackString
             outputString += "\r"
         }
         

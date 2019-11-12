@@ -63,6 +63,24 @@ class Track {
         }
     }
     
+    var trackString:String {
+        get {
+            var returnString = "#EXTINF:\(self.trackLength),\(self.trackName)"
+            returnString += "\r"
+            
+            // TODO: use the source path until we have the target path
+//            if let path = self.playlistPath {
+//                returnString += path
+//            }
+            
+            if let path = _sourceURL?.path {
+                returnString += path
+            }
+            
+            return returnString
+        }
+    }
+    
     
     init(trackTxt:String) {
         self._trackText = trackTxt
@@ -120,16 +138,4 @@ class Track {
         
         return false
     }
-    
-    func toString () -> String {
-        var returnString = "#EXTINF:\(self.trackLength),\(self.trackName)"
-        
-        returnString += "\r"
-        
-        if let path = self.playlistPath {
-            returnString += path
-        }
-        
-        return returnString
-    }    
 }
