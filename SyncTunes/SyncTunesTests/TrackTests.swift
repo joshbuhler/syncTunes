@@ -23,7 +23,7 @@ class TrackTests: XCTestCase {
     
     let t6_text = "#EXTINF:38,Matterhorn climbers announcements - Unknown\r/path/to/Music/iTunes/iTunes Media/Music/Unknown/Untitled - 11-15-05 (3)/06 Matterhorn climbers announcements.aac"
 
-    let t7_text = "#EXTINF:37,Journey to Austria - John Williams\r/path/to/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.flac"
+    let t7_text = "#EXTINF:37,Journey, to Austria - John Williams\r/path/to/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.flac"
     
     // unsupported type
     let t8_text = "#EXTINF:37,Journey to Austria - John Williams\r/this/is/an/unsupported/file/type.xyz"
@@ -76,7 +76,7 @@ class TrackTests: XCTestCase {
         XCTAssertEqual(t6.sourceURL, URL(fileURLWithPath: "/path/to/Music/iTunes/iTunes Media/Music/Unknown/Untitled - 11-15-05 (3)/06 Matterhorn climbers announcements.aac"))
         
         let t7 = Track(trackTxt: t7_text)
-        XCTAssertEqual(t7.trackName, "Journey to Austria - John Williams")
+        XCTAssertEqual(t7.trackName, "Journey, to Austria - John Williams")
         XCTAssertEqual(t7.trackLength, 37)
         XCTAssertTrue(t7.isSupportedType, "mp3 should be a supported type")
         XCTAssertEqual(t7.sourceURL, URL(fileURLWithPath: "/path/to/Music/iTunes/iTunes Media/Music/John Williams/Indiana Jones_ The Soundtracks Collection/3-06 Journey to Austria.flac"))
