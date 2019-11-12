@@ -56,6 +56,7 @@ class Track {
     }
     
     // url written to playlist - originally came from syncTunes.swift
+    // TODO: how is this different from targetURL?
     private var _playlistPath:String?
     var playlistPath:String? {
         get {
