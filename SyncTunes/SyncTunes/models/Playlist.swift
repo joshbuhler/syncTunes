@@ -53,10 +53,18 @@ class Playlist {
     convenience init(playlistText:String) {
         self.init()        
         _fileText = playlistText
-    }
+    }    
     
-    
-    func loadFile (_ file:URL) {
+    @discardableResult func loadFile (_ file:URL) -> Bool {
+        
+        let fName = file.lastPathComponent
+        if (SupportedPlaylistFileType.checkFileType(txt: fName) == false) {
+            let errorMsg  = "⚠️  Unsupported file type: \(self.fileName ?? "")"
+            print (errorMsg)
+            ConsoleIO.writeMessage(errorMsg, to: .error)
+            return false
+        }
+        
         self._fileURL = file
         
         do {
@@ -66,7 +74,10 @@ class Playlist {
             let errorMsg  = "🛑  ERROR loading contents of file: \(file) - Error: \(error)"
             print (errorMsg)
             ConsoleIO.writeMessage(errorMsg, to: .error)
+            return false
         }
+        
+        return true
     }
     
     func processPlaylist () {
@@ -77,7 +88,7 @@ class Playlist {
             ConsoleIO.writeMessage(errorMsg, to: .error)
             return
         }
-        
+                
         // Let's lose the file header (assuming this file has one)
         if let headerRange = fileText.range(of: "#EXTM3U") {
             fileText.removeSubrange(headerRange)

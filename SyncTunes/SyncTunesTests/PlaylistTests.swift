@@ -35,6 +35,7 @@ class PlaylistTests: XCTestCase {
         XCTAssertNil(plist.fileName, "Playlist filename was not nil")
         XCTAssertNil(plist.fileText, "Playlist fileText was not nil")
     }
+    
 
     func test_openFile () {
         let url_1 = getPlaylistURL(filename: "x.m3u")

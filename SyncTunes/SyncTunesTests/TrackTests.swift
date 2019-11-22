@@ -108,8 +108,7 @@ class TrackTests: XCTestCase {
         
         // unsupported file types
         let t8 = Track(trackTxt: t8_text)
-        XCTAssertFalse(t8.isSupportedType, "XYZ should NOT be a supported type")
-        
+        XCTAssertFalse(t8.isSupportedType, "XYZ should NOT be a supported type")        
     }
 
     func test_trackString () {

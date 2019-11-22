@@ -7,16 +7,6 @@
 
 import Cocoa
 
-enum SupportedFileType:String, CaseIterable {
-    case mp3 = "mp3"
-    case m4a = "m4a"
-    case wma = "wma"
-    case wav = "wav"
-    case m4b = "m4b"
-    case aac = "aac"
-    case flac = "flac"
-}
-
 class Track {
     
     private var _trackText:String = ""
@@ -38,7 +28,7 @@ class Track {
     }
     
     var isSupportedType:Bool {
-        return self.checkFileType(txt: self._trackText)
+        return SupportedTrackFileType.checkFileType(txt: self._trackText)
     }
     
     private var _trackLength:Int = 0
@@ -120,23 +110,5 @@ class Track {
             //print ("fileText: \(fileText)")
             _sourceURL = URL(fileURLWithPath: fileText)
         }
-    }
-    
-    private func checkFileType (txt:String) -> Bool {
-        let patternString = SupportedFileType.allCases.map({"\($0.rawValue)"}).joined(separator: "|")
-        let pattern = "(\(patternString))"
-        
-        let fullRange = NSMakeRange(0, txt.count)
-        
-        do {
-            let idRegex = try NSRegularExpression(pattern: pattern, options: NSRegularExpression.Options.caseInsensitive)
-            
-            return (idRegex.numberOfMatches(in: txt, options: NSRegularExpression.MatchingOptions.init(rawValue: 0), range: fullRange) > 0)
-            
-        } catch let error {
-            print ("ERROR: \(error)")
-        }
-        
-        return false
     }
 }

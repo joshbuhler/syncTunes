@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C58400A23872B0600D70D0E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58400923872B0600D70D0E /* FileTypes.swift */; };
+		5C58400C23884B7C00D70D0E /* FileTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58400B23884B7C00D70D0E /* FileTypesTests.swift */; };
 		5CEF591123749ABD0067BA31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF591023749ABD0067BA31 /* AppDelegate.swift */; };
 		5CEF591323749ABD0067BA31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF591223749ABD0067BA31 /* ViewController.swift */; };
 		5CEF591523749ABE0067BA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF591423749ABE0067BA31 /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5C58400923872B0600D70D0E /* FileTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTypes.swift; sourceTree = "<group>"; };
+		5C58400B23884B7C00D70D0E /* FileTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTypesTests.swift; sourceTree = "<group>"; };
 		5CEF590D23749ABD0067BA31 /* SyncTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CEF591023749ABD0067BA31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CEF591223749ABD0067BA31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 			children = (
 				5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */,
 				5CEF59492374A15F0067BA31 /* PlaylistTests.swift */,
+				5C58400B23884B7C00D70D0E /* FileTypesTests.swift */,
 				5CEF5950237609CF0067BA31 /* TrackTests.swift */,
 				5CEF592523749ABE0067BA31 /* Info.plist */,
 			);
@@ -154,6 +159,7 @@
 			children = (
 				5CEF59452374A0D40067BA31 /* Playlist.swift */,
 				5CEF59472374A13B0067BA31 /* Track.swift */,
+				5C58400923872B0600D70D0E /* FileTypes.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -310,6 +316,7 @@
 				5CEF591123749ABD0067BA31 /* AppDelegate.swift in Sources */,
 				5CEF59462374A0D40067BA31 /* Playlist.swift in Sources */,
 				5CEF59482374A13B0067BA31 /* Track.swift in Sources */,
+				5C58400A23872B0600D70D0E /* FileTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +327,7 @@
 				5CEF5951237609CF0067BA31 /* TrackTests.swift in Sources */,
 				5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */,
 				5CEF594A2374A15F0067BA31 /* PlaylistTests.swift in Sources */,
+				5C58400C23884B7C00D70D0E /* FileTypesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
