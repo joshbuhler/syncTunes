@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		5C58400A23872B0600D70D0E /* FileTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58400923872B0600D70D0E /* FileTypes.swift */; };
 		5C58400C23884B7C00D70D0E /* FileTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58400B23884B7C00D70D0E /* FileTypesTests.swift */; };
+		5CA4E0D5238F82EB005757AC /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CA4E0D4238F82EB005757AC /* DifferenceKit */; };
+		5CA4E0D8238F8317005757AC /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CA4E0D7238F8317005757AC /* RevHash */; };
 		5CEF591123749ABD0067BA31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF591023749ABD0067BA31 /* AppDelegate.swift */; };
 		5CEF591323749ABD0067BA31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF591223749ABD0067BA31 /* ViewController.swift */; };
 		5CEF591523749ABE0067BA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF591423749ABE0067BA31 /* Assets.xcassets */; };
 		5CEF591823749ABE0067BA31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF591623749ABE0067BA31 /* Main.storyboard */; };
 		5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */; };
 		5CEF592F23749ABE0067BA31 /* SyncTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */; };
-		5CEF593E23749B8C0067BA31 /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEF593D23749B8C0067BA31 /* RevHash */; };
-		5CEF594123749C280067BA31 /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CEF594023749C280067BA31 /* DifferenceKit */; };
 		5CEF59462374A0D40067BA31 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59452374A0D40067BA31 /* Playlist.swift */; };
 		5CEF59482374A13B0067BA31 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59472374A13B0067BA31 /* Track.swift */; };
 		5CEF594A2374A15F0067BA31 /* PlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59492374A15F0067BA31 /* PlaylistTests.swift */; };
@@ -73,8 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CEF594123749C280067BA31 /* DifferenceKit in Frameworks */,
-				5CEF593E23749B8C0067BA31 /* RevHash in Frameworks */,
+				5CA4E0D8238F8317005757AC /* RevHash in Frameworks */,
+				5CA4E0D5238F82EB005757AC /* DifferenceKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,8 +189,8 @@
 			);
 			name = SyncTunes;
 			packageProductDependencies = (
-				5CEF593D23749B8C0067BA31 /* RevHash */,
-				5CEF594023749C280067BA31 /* DifferenceKit */,
+				5CA4E0D4238F82EB005757AC /* DifferenceKit */,
+				5CA4E0D7238F8317005757AC /* RevHash */,
 			);
 			productName = SyncTunes;
 			productReference = 5CEF590D23749ABD0067BA31 /* SyncTunes.app */;
@@ -265,8 +265,8 @@
 			);
 			mainGroup = 5CEF590423749ABD0067BA31;
 			packageReferences = (
-				5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */,
-				5CEF593F23749C280067BA31 /* XCRemoteSwiftPackageReference "DifferenceKit" */,
+				5CA4E0D3238F82EB005757AC /* XCRemoteSwiftPackageReference "DifferenceKit" */,
+				5CA4E0D6238F8317005757AC /* XCRemoteSwiftPackageReference "RevHash.swift" */,
 			);
 			productRefGroup = 5CEF590E23749ABD0067BA31 /* Products */;
 			projectDirPath = "";
@@ -647,34 +647,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */ = {
+		5CA4E0D3238F82EB005757AC /* XCRemoteSwiftPackageReference "DifferenceKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:LinusU/RevHash.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		5CEF593F23749C280067BA31 /* XCRemoteSwiftPackageReference "DifferenceKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:ra1028/DifferenceKit.git";
+			repositoryURL = "https://github.com/ra1028/DifferenceKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.1.3;
 			};
 		};
+		5CA4E0D6238F8317005757AC /* XCRemoteSwiftPackageReference "RevHash.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LinusU/RevHash.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5CEF593D23749B8C0067BA31 /* RevHash */ = {
+		5CA4E0D4238F82EB005757AC /* DifferenceKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5CEF593C23749B8C0067BA31 /* XCRemoteSwiftPackageReference "RevHash.swift" */;
-			productName = RevHash;
-		};
-		5CEF594023749C280067BA31 /* DifferenceKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5CEF593F23749C280067BA31 /* XCRemoteSwiftPackageReference "DifferenceKit" */;
+			package = 5CA4E0D3238F82EB005757AC /* XCRemoteSwiftPackageReference "DifferenceKit" */;
 			productName = DifferenceKit;
+		};
+		5CA4E0D7238F8317005757AC /* RevHash */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5CA4E0D6238F8317005757AC /* XCRemoteSwiftPackageReference "RevHash.swift" */;
+			productName = RevHash;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

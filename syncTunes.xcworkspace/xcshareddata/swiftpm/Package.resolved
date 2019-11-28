@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "DifferenceKit",
-        "repositoryURL": "git@github.com:ra1028/DifferenceKit.git",
+        "repositoryURL": "https://github.com/ra1028/DifferenceKit.git",
         "state": {
           "branch": null,
           "revision": "4eb31f8e85e4cb13732f9664d6e01e507cd592a0",
@@ -12,7 +12,7 @@
       },
       {
         "package": "RevHash",
-        "repositoryURL": "git@github.com:LinusU/RevHash.swift.git",
+        "repositoryURL": "https://github.com/LinusU/RevHash.swift.git",
         "state": {
           "branch": null,
           "revision": "f4fd8c156768dfb57d3f37dd8bd45c65fa806f66",
