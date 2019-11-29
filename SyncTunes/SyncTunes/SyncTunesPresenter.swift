@@ -10,8 +10,23 @@ import Foundation
 
 class SyncTunesPresenter {
     
+    
+    private var _playlists:[Playlist]
+    public var playlists:[Playlist] {
+        get {
+            return _playlists
+        }
+    }
+    
+    init() {
+        _playlists = [Playlist]()
+    }
+    
     func addPlaylistFile (fileURL:URL) {
+        let plist = Playlist()
+        plist.loadFile(fileURL)
         
+        _playlists.append(plist)
     }
     
     func buildTrackList () {
