@@ -33,14 +33,14 @@ class Playlist {
         }
     }
     
-    var _tracklist:[Track] = [Track]()
+    private var _tracklist:[Track] = [Track]()
     var tracks:[Track] {
         get {
             return _tracklist
         }
     }
     
-    var _unsupportedTracks:[Track] = [Track]()
+    private var _unsupportedTracks:[Track] = [Track]()
     var unsupportedTracks:[Track] {
         get {
             return _unsupportedTracks
