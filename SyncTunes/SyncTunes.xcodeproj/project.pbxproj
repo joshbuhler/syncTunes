@@ -11,11 +11,12 @@
 		5C58400C23884B7C00D70D0E /* FileTypesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C58400B23884B7C00D70D0E /* FileTypesTests.swift */; };
 		5CA4E0D5238F82EB005757AC /* DifferenceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5CA4E0D4238F82EB005757AC /* DifferenceKit */; };
 		5CA4E0D8238F8317005757AC /* RevHash in Frameworks */ = {isa = PBXBuildFile; productRef = 5CA4E0D7238F8317005757AC /* RevHash */; };
+		5CA4E0DA238F87AA005757AC /* SyncTunesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA4E0D9238F87AA005757AC /* SyncTunesPresenter.swift */; };
 		5CEF591123749ABD0067BA31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF591023749ABD0067BA31 /* AppDelegate.swift */; };
 		5CEF591323749ABD0067BA31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF591223749ABD0067BA31 /* ViewController.swift */; };
 		5CEF591523749ABE0067BA31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF591423749ABE0067BA31 /* Assets.xcassets */; };
 		5CEF591823749ABE0067BA31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CEF591623749ABE0067BA31 /* Main.storyboard */; };
-		5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */; };
+		5CEF592423749ABE0067BA31 /* SyncTunesPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592323749ABE0067BA31 /* SyncTunesPresenterTests.swift */; };
 		5CEF592F23749ABE0067BA31 /* SyncTunesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */; };
 		5CEF59462374A0D40067BA31 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59452374A0D40067BA31 /* Playlist.swift */; };
 		5CEF59482374A13B0067BA31 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CEF59472374A13B0067BA31 /* Track.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		5C58400923872B0600D70D0E /* FileTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTypes.swift; sourceTree = "<group>"; };
 		5C58400B23884B7C00D70D0E /* FileTypesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileTypesTests.swift; sourceTree = "<group>"; };
+		5CA4E0D9238F87AA005757AC /* SyncTunesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTunesPresenter.swift; sourceTree = "<group>"; };
 		5CEF590D23749ABD0067BA31 /* SyncTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CEF591023749ABD0067BA31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CEF591223749ABD0067BA31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +55,7 @@
 		5CEF591923749ABE0067BA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CEF591A23749ABE0067BA31 /* SyncTunes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SyncTunes.entitlements; sourceTree = "<group>"; };
 		5CEF591F23749ABE0067BA31 /* SyncTunesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncTunesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTunesTests.swift; sourceTree = "<group>"; };
+		5CEF592323749ABE0067BA31 /* SyncTunesPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTunesPresenterTests.swift; sourceTree = "<group>"; };
 		5CEF592523749ABE0067BA31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CEF592A23749ABE0067BA31 /* SyncTunesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SyncTunesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CEF592E23749ABE0067BA31 /* SyncTunesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncTunesUITests.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				5CEF591023749ABD0067BA31 /* AppDelegate.swift */,
 				5CEF591223749ABD0067BA31 /* ViewController.swift */,
+				5CA4E0D9238F87AA005757AC /* SyncTunesPresenter.swift */,
 				5CEF59442374A0D40067BA31 /* models */,
 				5CEF594B2374A1B60067BA31 /* utils */,
 				5CEF594223749D710067BA31 /* SyncTunes_Unit.xctestplan */,
@@ -136,7 +139,7 @@
 		5CEF592223749ABE0067BA31 /* SyncTunesTests */ = {
 			isa = PBXGroup;
 			children = (
-				5CEF592323749ABE0067BA31 /* SyncTunesTests.swift */,
+				5CEF592323749ABE0067BA31 /* SyncTunesPresenterTests.swift */,
 				5CEF59492374A15F0067BA31 /* PlaylistTests.swift */,
 				5C58400B23884B7C00D70D0E /* FileTypesTests.swift */,
 				5CEF5950237609CF0067BA31 /* TrackTests.swift */,
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CEF594D2374A1B70067BA31 /* ConsoleIO.swift in Sources */,
+				5CA4E0DA238F87AA005757AC /* SyncTunesPresenter.swift in Sources */,
 				5CEF591323749ABD0067BA31 /* ViewController.swift in Sources */,
 				5CEF591123749ABD0067BA31 /* AppDelegate.swift in Sources */,
 				5CEF59462374A0D40067BA31 /* Playlist.swift in Sources */,
@@ -325,7 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CEF5951237609CF0067BA31 /* TrackTests.swift in Sources */,
-				5CEF592423749ABE0067BA31 /* SyncTunesTests.swift in Sources */,
+				5CEF592423749ABE0067BA31 /* SyncTunesPresenterTests.swift in Sources */,
 				5CEF594A2374A15F0067BA31 /* PlaylistTests.swift in Sources */,
 				5C58400C23884B7C00D70D0E /* FileTypesTests.swift in Sources */,
 			);
