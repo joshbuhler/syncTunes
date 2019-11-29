@@ -49,4 +49,20 @@ class SyncTunesPresenterTests: XCTestCase {
         presenter.addPlaylistFile (fileURL: url_2)
         XCTAssertEqual(presenter.playlists.count, 2)
     }
+    
+    func test_refreshTrackList () {
+        let presenter = SyncTunesPresenter()
+        
+        let url_1 = getPlaylistURL(filename: "TestPlaylist.m3u")
+        presenter.addPlaylistFile (fileURL: url_1)
+        
+        presenter.refreshTrackList()
+        XCTAssertEqual(presenter.tracks.count, 7)
+        
+        let url_2 = getPlaylistURL(filename: "x.m3u")
+        presenter.addPlaylistFile (fileURL: url_2)
+        
+        presenter.refreshTrackList()
+        XCTAssertEqual(presenter.tracks.count, 477)
+    }
 }

@@ -18,19 +18,33 @@ class SyncTunesPresenter {
         }
     }
     
+    private var _tracks:[Track]
+    public var tracks:[Track] {
+        get {
+            return _tracks
+        }
+    }
+    
     init() {
         _playlists = [Playlist]()
+        _tracks = [Track]()
     }
     
     func addPlaylistFile (fileURL:URL) {
         let plist = Playlist()
         plist.loadFile(fileURL)
+        plist.processPlaylist()
         
         _playlists.append(plist)
     }
     
-    func buildTrackList () {
+    func refreshTrackList () {
         
+        _tracks.removeAll()
+        
+        for p in _playlists {
+            _tracks.append(contentsOf: p.tracks)
+        }
     }
     
     func trimPathAncestors () {
