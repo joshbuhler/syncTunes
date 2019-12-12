@@ -96,8 +96,8 @@ class SyncTunesPresenterTests: XCTestCase {
         presenter.trimPathAncestors()
         
         for t:Track in tracks {
-            XCTAssertNotNil(t.targetURL)
-            let pathString = t.targetURL!.path
+            XCTAssertNotNil(t.targetPath)
+            let pathString = t.targetPath!
             XCTAssertFalse(pathString.contains(pathToBeTrimmed))
         }
     }

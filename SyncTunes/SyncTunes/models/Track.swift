@@ -21,7 +21,7 @@ class Track {
     
     // TODO: Should this be part of the copy operation? Does a track care where it's going?
     // Where the track's file is being copied to
-    var targetURL:URL?
+    var targetPath:String?
     
     var isSupportedType:Bool {
         return SupportedTrackFileType.checkFileType(txt: self._trackText)

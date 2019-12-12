@@ -47,6 +47,14 @@ class SyncTunesPresenter {
         }
     }
     
+    // Trims up to the closest parent directory. For example, these:
+    //
+    // /Users/joshuabuhler/Music/iTunes/iTunes Media/Music/Martin O'Donnell & Michael Salvatori/Halo 3_ Original Soundtrack/16 Three Gates 1.mp3
+    // /Users/joshuabuhler/Music/iTunes/iTunes Media/Music/Original Video Game Soundtrack/Halo Reach_ Original Soundtrack/1-01 Overture.mp3
+    // will be trimmed to:
+    // /Music/Martin O'Donnell & Michael Salvatori/Halo 3_ Original Soundtrack/16 Three Gates 1.mp3//
+    // /Music/Original Video Game Soundtrack/Halo Reach_ Original Soundtrack/1-01 Overture.mp3
+    
     func trimPathAncestors () {
         var pathCompsToTrim = 0
         
@@ -84,12 +92,7 @@ class SyncTunesPresenter {
                 startComps.removeFirst(pathCompsToTrim)
                 
                 // update the URL
-                var newDestURL = URL(fileURLWithPath: "")
-                for c in startComps {
-                    newDestURL.appendPathComponent(c)
-                }
-                t.targetURL = newDestURL
-//                t.playlistPath = "\\" + startComps.joined(separator: "\\")
+                t.targetPath = startComps.joined(separator: "/")
             }
         }
     }
