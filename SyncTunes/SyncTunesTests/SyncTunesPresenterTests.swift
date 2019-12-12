@@ -51,6 +51,8 @@ class SyncTunesPresenterTests: XCTestCase {
     }
     
     func test_refreshTrackList () {
+        // Each playlist added increments the expected track count
+        
         let presenter = SyncTunesPresenter()
         
         let url_1 = getPlaylistURL(filename: "TestPlaylist.m3u")
@@ -64,5 +66,39 @@ class SyncTunesPresenterTests: XCTestCase {
         
         presenter.refreshTrackList()
         XCTAssertEqual(presenter.tracks.count, 477)
+    }
+    
+    func test_trimPathAncestors () {
+        let presenter = SyncTunesPresenter()
+        
+        let url_2 = getPlaylistURL(filename: "x.m3u")
+        presenter.addPlaylistFile (fileURL: url_2)
+        
+        presenter.refreshTrackList()
+        
+        let expectedTrackCount = 470
+        XCTAssertEqual(presenter.tracks.count, expectedTrackCount)
+        
+        // Every path in this file begins with `/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/`
+        // After trimming, this should not be found in any path
+        
+        let pathToBeTrimmed = "/Users/joshuabuhler/Music/iTunes/iTunes Media/Music/"
+        let pathAsURL = URL(fileURLWithPath: pathToBeTrimmed, isDirectory: true)
+        
+        let tracks = presenter.tracks
+        for t:Track in tracks {
+            XCTAssertNotNil(t.sourceURL)
+            let pathString = t.sourceURL!.path
+            XCTAssertTrue(pathString.contains(pathToBeTrimmed))
+            XCTAssertTrue(t.sourceURL!.pathComponents.count > pathAsURL.pathComponents.count)
+        }
+        
+        presenter.trimPathAncestors()
+        
+        for t:Track in tracks {
+            XCTAssertNotNil(t.targetURL)
+            let pathString = t.targetURL!.path
+            XCTAssertFalse(pathString.contains(pathToBeTrimmed))
+        }
     }
 }

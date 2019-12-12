@@ -48,7 +48,50 @@ class SyncTunesPresenter {
     }
     
     func trimPathAncestors () {
+        var pathCompsToTrim = 0
         
+        // at most, we'll trim 10 path components
+        for i in 0..<10 {
+            
+            var cPathComp:String = ""
+            let t1 = tracks[0]
+            if let sourceURL = t1.sourceURL {
+                let pathComps = sourceURL.pathComponents
+                cPathComp = pathComps[i]
+            
+                var allMatch = true
+                for t in tracks {
+                    if let tURL = t.sourceURL {
+                        let pathComps = tURL.pathComponents
+                        if (pathComps[i] != cPathComp) {
+                            // stop looking
+                            allMatch = false
+                            break
+                        }
+                    }
+                }
+                if (allMatch == false) {
+                    break
+                } else {
+                    pathCompsToTrim = i
+                }
+            }
+        }
+        
+        for t in tracks {
+            if let sourceURL = t.sourceURL {
+                var startComps = sourceURL.pathComponents
+                startComps.removeFirst(pathCompsToTrim)
+                
+                // update the URL
+                var newDestURL = URL(fileURLWithPath: "")
+                for c in startComps {
+                    newDestURL.appendPathComponent(c)
+                }
+                t.targetURL = newDestURL
+//                t.playlistPath = "\\" + startComps.joined(separator: "\\")
+            }
+        }
     }
     
     func clearDeletedTracks () {
