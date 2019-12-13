@@ -19,9 +19,8 @@ class Track {
         }
     }
     
-    // TODO: Should this be part of the copy operation? Does a track care where it's going?
-    // Where the track's file is being copied to
-    var targetPath:String?
+    // The path to the track after having trimmed any extra from the beginning
+    var trackPath:String?
     
     var isSupportedType:Bool {
         return SupportedTrackFileType.checkFileType(txt: self._trackText)

@@ -92,7 +92,7 @@ class SyncTunesPresenter {
                 startComps.removeFirst(pathCompsToTrim)
                 
                 // update the URL
-                t.targetPath = startComps.joined(separator: "/")
+                t.trackPath = startComps.joined(separator: "/")
             }
         }
     }
