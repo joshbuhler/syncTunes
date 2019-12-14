@@ -101,8 +101,24 @@ class SyncTunesPresenter {
         
     }
     
-    func createOutputDir () {
+    func createOutputDir (outputURL:URL, overwriteExisting:Bool = false) {
+        let fileMan = FileManager.default
         
+        if (fileMan.fileExists(atPath: outputURL.path)) {
+            if (overwriteExisting) {
+                try? fileMan.removeItem(at: outputURL)
+            } else {
+                return
+            }
+        }
+        do {
+            try fileMan.createDirectory(at: outputURL,
+                                        withIntermediateDirectories: false,
+                                        attributes: nil)
+        } catch let e {
+            print ("ERROR: \(e)")
+            return
+        }
     }
     
     func writePlaylistFiles () {
