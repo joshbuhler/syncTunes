@@ -11,23 +11,13 @@ import Foundation
 class SyncTunesPresenter {
     
     
-    private var _playlists:[Playlist]
-    public var playlists:[Playlist] {
-        get {
-            return _playlists
-        }
-    }
+    public private(set) var playlists:[Playlist]
     
-    private var _tracks:[Track]
-    public var tracks:[Track] {
-        get {
-            return _tracks
-        }
-    }
+    public private(set) var tracks:[Track]
     
     init() {
-        _playlists = [Playlist]()
-        _tracks = [Track]()
+        playlists = [Playlist]()
+        tracks = [Track]()
     }
     
     func addPlaylistFile (fileURL:URL) {
@@ -35,15 +25,15 @@ class SyncTunesPresenter {
         plist.loadFile(fileURL)
         plist.processPlaylist()
         
-        _playlists.append(plist)
+        playlists.append(plist)
     }
     
     func refreshTrackList () {
         
-        _tracks.removeAll()
+        tracks.removeAll()
         
-        for p in _playlists {
-            _tracks.append(contentsOf: p.tracks)
+        for p in playlists {
+            tracks.append(contentsOf: p.tracks)
         }
     }
     

@@ -9,16 +9,11 @@ import Cocoa
 
 class Playlist {
     
-    private var _fileURL:URL?
-    var fileURL:URL? {
-        get {
-            return _fileURL
-        }
-    }
+    public private(set) var fileURL:URL?
 
     var fileName:String? {
         get {
-            guard let lastComp = _fileURL?.lastPathComponent else {
+            guard let lastComp = fileURL?.lastPathComponent else {
                 return nil
             }
             
@@ -26,33 +21,18 @@ class Playlist {
         }
     }
     
-    private var _fileText:String?
-    var fileText:String? {
-        get {
-            return _fileText
-        }
-    }
+    public private(set) var fileText:String?
     
-    private var _tracklist:[Track] = [Track]()
-    var tracks:[Track] {
-        get {
-            return _tracklist
-        }
-    }
+    public private(set) var tracks:[Track] = [Track]()
     
-    private var _unsupportedTracks:[Track] = [Track]()
-    var unsupportedTracks:[Track] {
-        get {
-            return _unsupportedTracks
-        }
-    }
+    public private(set) var unsupportedTracks:[Track] = [Track]()
 
     // Most of the guts of SyncTunes will be moved here. This will handle the parsing of a playlist file, track creation, and a toString() method for writing the playlist file. syncTunes can handle the actual file writing.
     // SyncTunes will also be responsible for scanning a directory, and feeding the files to Playlist
     
     convenience init(playlistText:String) {
         self.init()        
-        _fileText = playlistText
+        fileText = playlistText
     }    
     
     @discardableResult func loadFile (_ file:URL) -> Bool {
@@ -65,10 +45,10 @@ class Playlist {
             return false
         }
         
-        self._fileURL = file
+        self.fileURL = file
         
         do {
-            _fileText = try String.init(contentsOf: file, encoding: .utf8)
+            fileText = try String.init(contentsOf: file, encoding: .utf8)
         } catch let error {
             
             let errorMsg  = "🛑  ERROR loading contents of file: \(file) - Error: \(error)"
@@ -82,7 +62,7 @@ class Playlist {
     
     func processPlaylist () {
         
-        guard var fileText = self._fileText else {
+        guard var fileText = self.fileText else {
             let errorMsg  = "⚠️  `fileText` was empty for: \(self.fileName ?? "")"
             print (errorMsg)
             ConsoleIO.writeMessage(errorMsg, to: .error)
@@ -104,14 +84,14 @@ class Playlist {
             
             let newTrack = Track(trackTxt: t)
             if (newTrack.isSupportedType) {
-                _tracklist.append(newTrack)
+                tracks.append(newTrack)
             } else {
-                _unsupportedTracks.append(newTrack)
+                unsupportedTracks.append(newTrack)
             }
         }
         
         print ("✅   Found \(tracks.count) tracks in \(self.fileName ?? "")")
-        if (_unsupportedTracks.count > 0) {
+        if (unsupportedTracks.count > 0) {
             print ("⚠️   Found \(unsupportedTracks.count) unsupported tracks in \(self.fileName ?? "")")
         }
     }

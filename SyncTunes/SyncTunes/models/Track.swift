@@ -12,12 +12,7 @@ class Track {
     private var _trackText:String = ""
     
     // Where the track's file is coming from
-    private var _sourceURL:URL?
-    var sourceURL:URL? {
-        get {
-            return _sourceURL
-        }
-    }
+    public private(set) var sourceURL:URL?
     
     // The path to the track after having trimmed any extra from the beginning
     var trackPath:String?
@@ -26,28 +21,13 @@ class Track {
         return SupportedTrackFileType.checkFileType(txt: self._trackText)
     }
     
-    private var _trackLength:Int = 0
-    var trackLength:Int {
-        get {
-            return _trackLength
-        }
-    }
+    public private(set) var trackLength:Int = 0
     
-    private var _trackName:String = "MISSING_TRACK_NAME"
-    var trackName:String {
-        get {
-            return _trackName
-        }
-    }
+    public private(set) var trackName:String = "MISSING_TRACK_NAME"
     
     // url written to playlist - originally came from syncTunes.swift
     // TODO: how is this different from targetURL?
-    private var _playlistPath:String?
-    var playlistPath:String? {
-        get {
-            return _playlistPath
-        }
-    }
+    public private(set) var playlistPath:String?
     
     var trackString:String {
         get {
@@ -59,7 +39,7 @@ class Track {
 //                returnString += path
 //            }
             
-            if let path = _sourceURL?.path {
+            if let path = sourceURL?.path {
                 returnString += path
             }
             
@@ -89,13 +69,13 @@ class Track {
             var comps = mText.components(separatedBy: ",")
             
             if let length = Int(comps[0]) {
-                _trackLength = length
+                trackLength = length
             }
             
             if (comps.count >= 2) {
                 // just in case the track has "," in it, join the rest back together
                 comps.removeFirst()
-                _trackName = comps.joined(separator: ",")
+                trackName = comps.joined(separator: ",")
             }
         }
         
@@ -103,7 +83,7 @@ class Track {
         if (trackComponents.count >= 2) {
             let fileText = trackComponents[1]
             //print ("fileText: \(fileText)")
-            _sourceURL = URL(fileURLWithPath: fileText)
+            sourceURL = URL(fileURLWithPath: fileText)
         }
     }
 }
