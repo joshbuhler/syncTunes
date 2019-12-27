@@ -63,7 +63,7 @@ Supported audio file extensions:
 - AAC
 - FLAC
 
-Supported USB file systems include: FAT, exFAT, and NTFS.
+Supported USB file systems include: FAT, exFAT, and NTFS. Drives must also be formatted using the "Master Boot Record" partition scheme for SYNC 3 to find them.
 
 SYNC 3 is also able to organize the media from your USB device by metadata tags. Metadata tags, which are descriptive software identifiers embedded in the media files, provide information about the file.
 
